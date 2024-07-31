@@ -1,0 +1,46 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.custom-placeholder::placeholder {
+    font-size: 15px;
+    font-weight: lighter;
+    /* Adjust the font size */
+    color: #6e6e6e;
+    /* Optional: placeholder text color */
+}
+
+@keyframes shake {
+    0% {
+        transform: translateX(0);
+    }
+
+    25% {
+        transform: translateX(-5px);
+    }
+
+    50% {
+        transform: translateX(5px);
+    }
+
+    75% {
+        transform: translateX(-5px);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+.shake {
+    animation: shake 0.5s ease;
+}
+
+
+/* Add this to your CSS file */
+.borderless-input {
+    border: none;
+    outline: none;
+    box-shadow: none; /* This is to remove any default focus shadow */
+}
