@@ -151,7 +151,7 @@ export default function StepsCard() {
                 {/* modal */}
                 {
                     // resetForm &&
-                    <dialog id="my_modal_3" className="modal w-full ">
+                    <dialog id="my_modal_3" className="modal w-full bg-white">
                         <div className="modal-box w-[70%] max-w-none">
 
                             <form method="dialog">

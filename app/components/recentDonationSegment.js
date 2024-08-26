@@ -59,7 +59,7 @@ export default function RecentDonationSegment() {
 
 
     return (
-        <div className='w-full mt-28 flex gap-10 justify-between '>
+        <div className='w-full mt-28 flex gap-10 justify-between'>
             <div className='flex flex-col gap-4 items-center  justify-center text-center font-semibold w-2/4'>
                 <h3 className='text-3xl font-semibold'>
                     With No Food, No Water...
@@ -73,7 +73,7 @@ export default function RecentDonationSegment() {
                 </p>
             </div>
 
-            <div className="card bg-base-100 w-96 shadow-xl mr-14">
+            <div className="card bg-white w-96 shadow-xl mr-14">
                 <div className="card-body border rounded-2xl">
                     <h2 className="card-title mx-auto">Recent Donations</h2>
                     {/* recent donation list */}
