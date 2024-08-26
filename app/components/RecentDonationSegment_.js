@@ -67,7 +67,7 @@ export default function RecentDonationSegment_({ donations }) {
                     Families Rely on Aid for Survival
                 </h2>
                 <p className='text-xl font-normal'>
-                    Help us gift families in Syria with Hot Nutritious Meals for a Whole month for just $56
+                    Help us gift families in Syria with Hot Nutritious Meals for a Whole month for just £56
                 </p>
             </div>
 

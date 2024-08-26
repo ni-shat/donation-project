@@ -1,6 +1,6 @@
 import { Inter, Poppins } from "next/font/google";
 import "./globals.css";
-
+import { ModalProvider } from "./context/ModalContext";
 const inter = Inter({ subsets: ["latin"] });
 const poppins = Poppins({
   subsets: ["latin"],
@@ -17,7 +17,9 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={poppins.className}>
 
-        {children}
+        <ModalProvider>
+          {children}
+        </ModalProvider>
       </body>
     </html>
   );

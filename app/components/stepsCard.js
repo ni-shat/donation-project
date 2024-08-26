@@ -5,6 +5,7 @@ import heart from '@/public/images/heart.png'
 import image2 from '@/public/images/image2.jpg'
 import DonationForm from './donationForm';
 import DonationFormTwo from './donationFormTwo';
+import { useModal } from '../context/ModalContext'; 
 
 
 export default function StepsCard() {
@@ -12,21 +13,22 @@ export default function StepsCard() {
     const [selectedAmount, setSelectedAmount] = useState("250");
     const [resetForm, setResetForm] = useState(false);
     //console.log("selectedAmount", selectedAmount)
+    const { openModal, closeModal } = useModal();
 
     const handleClick = (id) => {
         setSelectedAmount(id);
     };
 
-    const openModal = () => {
-        // setResetForm(true)
-        // document.getElementById('my_modal_3').showModal()
-        const modal = document.getElementById('my_modal_3');
-        if (modal) modal.showModal();
-    };
-    const closeModal = () => {
-        const modal = document.getElementById('my_modal_3');
-        if (modal) modal.close();
-    };
+    // const openModal = () => {
+    //     // setResetForm(true)
+    //     // document.getElementById('my_modal_3').showModal()
+    //     const modal = document.getElementById('my_modal_3');
+    //     if (modal) modal.showModal();
+    // };
+    // const closeModal = () => {
+    //     const modal = document.getElementById('my_modal_3');
+    //     if (modal) modal.close();
+    // };
 
     const data = [
         {

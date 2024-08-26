@@ -1,6 +1,7 @@
 'use client';
 import React, { useEffect, useState } from 'react'
 import { formatDistanceToNow } from 'date-fns';
+import DonateNowButton from './donateNowButton';
 
 
 export default function RecentDonationSegment() {
@@ -67,7 +68,7 @@ export default function RecentDonationSegment() {
                     Families Rely on Aid for Survival
                 </h2>
                 <p className='text-xl font-normal'>
-                    Help us gift families in Syria with Hot Nutritious Meals for a Whole month for just $56
+                    Help us gift families in Syria with Hot Nutritious Meals for a Whole month for just £56
 
                 </p>
             </div>
@@ -93,7 +94,8 @@ export default function RecentDonationSegment() {
                         }
                     </div>
                     <div className="card-actions mt-5">
-                        <button className="btn btn-primary w-full">Donate</button>
+                        {/* <button className="btn btn-primary w-full">Donate</button> */}
+                        <DonateNowButton width={"w-56"} height={"h-[3rem]"} btnText={"Donate"}></DonateNowButton>
                     </div>
                 </div>
             </div>

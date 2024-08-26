@@ -1,9 +1,19 @@
+'use client';
 import React from 'react'
+import { useModal } from '../context/ModalContext'; // Import the custom hook
 
-export default function DonateNowButton() {
+export default function DonateNowButton({ width, height, btnText, textSize, font, lgWidth }) {
+    const { openModal } = useModal();
+    
     return (
-        <div>
-            <button className=" bg-primary text-white text-2xl font-normal mx-auto w-56 h-[75px] rounded-sm mt-2">Donate Now</button>
-        </div>
+
+        <button
+            className={`bg-primary text-white ${textSize} ${font} mx-auto 
+            ${width} 
+            ${height} rounded-sm mt-1.5 hover:bg-opacity-50`}
+            onClick={openModal} // Use the context function
+        >
+            {btnText}
+        </button>
     )
 }
