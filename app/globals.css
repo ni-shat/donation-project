@@ -44,3 +44,7 @@
     outline: none;
     box-shadow: none; /* This is to remove any default focus shadow */
 }
+
+.font-extra-extra-bold {
+    font-weight: 900; /* Adjust this value as needed */
+}

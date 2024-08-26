@@ -25,7 +25,7 @@ export default function ThirdSegment() {
                         Have you ever found yourself silently praying for your most heartfelt Dua to be answered?
                     </p>
                     <p className='text-xl font-normal'>
-                        Acts of kindness can hold the key to realizing One's Dua's potential.
+                        Acts of kindness can hold the key to realizing One&apos;s Dua&apos;s potential.
                     </p>
                     <p className='text-xl font-normal'>
                         Envision that by extending a helping hand, you could be just one charitable act away from seeing your most cherished dreams fulfilled.
@@ -55,7 +55,7 @@ export default function ThirdSegment() {
                         Have you ever found yourself silently praying for your most heartfelt Dua to be answered?
                     </p>
                     <p className='text-xl font-normal'>
-                        Acts of kindness can hold the key to realizing One's Dua's potential.
+                        Acts of kindness can hold the key to realizing One&apos;s Dua&apos;s potential.
                     </p>
                     <p className='text-xl font-normal'>
                         Envision that by extending a helping hand, you could be just one charitable act away from seeing your most cherished dreams fulfilled.
@@ -85,13 +85,13 @@ export default function ThirdSegment() {
                         Your kind act today goes beyond the moment, making a lasting legacy of giving that keeps bringing hope to people in need.
                     </p>
                     <p className='text-xl font-normal'>
-                        As you help feed them, you're doing more than filling stomachs; You're engaging in a tradition of helping out that will inspire others and keep going for a long time.
+                        As you help feed them, you&apos;re doing more than filling stomachs; You&apos;re engaging in a tradition of helping out that will inspire others and keep going for a long time.
                     </p>
                     <p className='text-xl font-normal'>
                         Start a journey of kindness with Spotlight Human
                     </p>
                     <p className='text-xl font-normal'>
-                        Create a legacy filled with care and charity, just like the saying goes, "The best of you are those who feed others" - Musnad Ahmad 23926.
+                        Create a legacy filled with care and charity, just like the saying goes, &quot;The best of you are those who feed others&quot; - Musnad Ahmad 23926.
                     </p>
                     <div>
                         <button className="px-6 py-4 bg-primary text-white text-xl font-semibold mx-auto w-full h-auto rounded-sm mt-2">YES, I WANT TO ESTABLISH THE LEGACY OF GIVING</button>

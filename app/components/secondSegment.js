@@ -17,13 +17,13 @@ export default function SecondSegment() {
                 </h3>
 
                 <p className='text-xl font-normal'>
-                    In the midst of Syria's prolonged crisis, countless families face daily struggles for essential needs like food, water, and shelter – necessities often overlooked by many.
+                    In the midst of Syria&apos;s prolonged crisis, countless families face daily struggles for essential needs like food, water, and shelter – necessities often overlooked by many.
                 </p>
                 <p className='text-xl font-normal'>
                     The heart-wrenching images we see reflect their enduring resilience and bravery in these challenging times.
                 </p>
                 <p className='text-xl font-normal'>
-                    These powerful scenes have moved us, kindling a call to action within our hearts. It's a reminder of the impact our support can have, urging us to contribute and make a tangible difference.
+                    These powerful scenes have moved us, kindling a call to action within our hearts. It&apos;s a reminder of the impact our support can have, urging us to contribute and make a tangible difference.
                 </p>
                 <p className='text-xl font-normal'>
                     The time to act is now!

@@ -1,30 +1,60 @@
-import React from 'react'
+'use client';
+import React, { useEffect, useState } from 'react'
+import { formatDistanceToNow } from 'date-fns';
+
 
 export default function RecentDonationSegment() {
 
-    const data = [
-        {
-            "name": "Mehd M.",
-            "id": 1,
-            "amount": "$18.85",
-            "location": "Paris, France",
-            "timeAgo": "2 minutes ago"
-        },
-        {
-            "name": "Jerren L.",
-            "id": 2,
-            "amount": "$14.74",
-            "location": "Hong Kong",
-            "timeAgo": "2 minutes ago"
-        },
-        {
-            "name": "Abdou S.",
-            "id": 3,
-            "amount": "$5.45",
-            "location": "Tudela, Spain",
-            "timeAgo": "2 minutes ago"
-        }
-    ]
+    const [donations, setDonations] = useState([]);
+    const [error, setError] = useState(null);
+
+    useEffect(() => {
+        // Fetch recent donations from the backend
+        const fetchDonations = async () => {
+            try {
+                const response = await fetch('http://localhost:4000/recent-donations');
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                const data = await response.json();
+                setDonations(data);
+            } catch (error) {
+                setError(error.message);
+            } 
+        };
+
+        fetchDonations();
+    }, []);
+
+    // const data = [
+    //     {
+    //         "name": "Mehd M.",
+    //         "id": 1,
+    //         "amount": "$18.85",
+    //         "location": "Paris, France",
+    //         "timeAgo": "2 minutes ago"
+    //     },
+    //     {
+    //         "name": "Jerren L.",
+    //         "id": 2,
+    //         "amount": "$14.74",
+    //         "location": "Hong Kong",
+    //         "timeAgo": "2 minutes ago"
+    //     },
+    //     {
+    //         "name": "Abdou S.",
+    //         "id": 3,
+    //         "amount": "$5.45",
+    //         "location": "Tudela, Spain",
+    //         "timeAgo": "2 minutes ago"
+    //     }
+    // ]
+
+    console.log('checking donations :',donations)
+      // Function to convert Firestore Timestamp to Date
+      const convertTimestampToDate = (timestamp) => {
+        return new Date(timestamp._seconds * 1000); // Convert seconds to milliseconds
+    };
 
 
     return (
@@ -46,15 +76,19 @@ export default function RecentDonationSegment() {
                 <div className="card-body border rounded-2xl">
                     <h2 className="card-title mx-auto">Recent Donations</h2>
                     {/* recent donation list */}
-                    <div className=''>
+                    <div className='overflow-y-auto h-60'>
                         {
-                            data.map(d => <div key={d.id}>
+                            donations.length > 0 && donations.map(d => <div key={d.id}>
                                 <div className='flex gap-4 text-base mt-5'>
-                                    <span className='w-fit  font-semibold'>{d.name}</span>
-                                    <span className='w-fit  text-primary'>{d.amount}</span>
+                                    <span className='w-fit  font-semibold capitalize'>{d.firstName} {d.lastName}</span>
+                                    <span className='w-fit  text-primary'>£{d.donation}</span>
                                 </div>
                                 <p className='font-normal'>{d.location}</p>
-                                <p className='text-gray-400'>{d.timeAgo}</p>
+                                {/* <p className='text-gray-400'>{d.timestamp}</p> */}
+                                <p className='text-gray-400'>
+                                        {formatDistanceToNow(convertTimestampToDate(d.timestamp), { addSuffix: true })}
+                                </p>
+                                    {/* <div>Time Ago: {formatDistanceToNow(d.timestamp.toDate(), { addSuffix: true })}</div> */}
                             </div>)
                         }
                     </div>

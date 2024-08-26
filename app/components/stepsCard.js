@@ -11,10 +11,21 @@ export default function StepsCard() {
 
     const [selectedAmount, setSelectedAmount] = useState("250");
     const [resetForm, setResetForm] = useState(false);
-    console.log("selectedAmount", selectedAmount)
+    //console.log("selectedAmount", selectedAmount)
 
     const handleClick = (id) => {
         setSelectedAmount(id);
+    };
+
+    const openModal = () => {
+        // setResetForm(true)
+        // document.getElementById('my_modal_3').showModal()
+        const modal = document.getElementById('my_modal_3');
+        if (modal) modal.showModal();
+    };
+    const closeModal = () => {
+        const modal = document.getElementById('my_modal_3');
+        if (modal) modal.close();
     };
 
     const data = [
@@ -133,45 +144,50 @@ export default function StepsCard() {
                 {/* donation form */}
                 <button
                     className=" bg-gray-800 text-white text-base font-semibold mx-auto w-40 h-12 rounded-sm relative flex items-center justify-center top-[78px] uppercase"
-                    onClick={() => document.getElementById('my_modal_3').showModal()}
+                    onClick={openModal}
                 >Donate Now</button>
                 {/* modal */}
-                <dialog id="my_modal_3" className="modal w-full ">
-                    <div className="modal-box w-[70%] max-w-none">
+                {
+                    // resetForm &&
+                    <dialog id="my_modal_3" className="modal w-full ">
+                        <div className="modal-box w-[70%] max-w-none">
 
-                        <form method="dialog">
-                            {/* if there is a button in form, it will close the modal */}
-                            <button onClick={() => setResetForm(true)} className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
-                        </form>
+                            <form method="dialog">
+                                {/* if there is a button in form, it will close the modal */}
+                                <button 
+                                // onClick={() => setResetForm(true)}
+                                onClick={closeModal}
+                                className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
+                            </form>
 
-                        {/* content */}
-                        <div className='flex gap-0 w-full'>
-                            <div className='space-y-4 w-[50%]'>
-                                <Image src={image2} alt='heart' placeholder='blur' className=' ' />
-                                {/* text content under image */}
-                                <div className='space-y-2'>
-                                    <h6 className='text-xl text-center font-semibold '>Hot Meals for hungry Families in Syria <br /> and Gaza</h6>
-                                    <p>In Syria and Gaza, countless families are battling hunger and poverty. You can provide
-                                        hot, nutritious meals to those in dire need. Each contribution brings us closer to alleviating the hardships of these families. Let's unite to feed lives and nourish hope.
-                                    </p>
+                            {/* content */}
+                            <div className='flex gap-0 w-full'>
+                                <div className='space-y-4 w-[50%]'>
+                                    <Image src={image2} alt='heart' placeholder='blur' className=' ' />
+                                    {/* text content under image */}
+                                    <div className='space-y-2'>
+                                        <h6 className='text-xl text-center font-semibold '>Hot Meals for hungry Families in Syria <br /> and Gaza</h6>
+                                        <p>In Syria and Gaza, countless families are battling hunger and poverty. You can provide
+                                            hot, nutritious meals to those in dire need. Each contribution brings us closer to alleviating the hardships of these families. Let&apos;s unite to feed lives and nourish hope.
+                                        </p>
+                                    </div>
+                                </div>
+                                <div className='divider lg:divider-horizontal'></div>
+                                <div className='w-[50%]'>
+
+                                    <div>
+                                        <DonationFormTwo
+                                            selectedStepCardAmount={selectedAmount}
+                                            resetForm={resetForm}
+                                            closeModal={closeModal} // to close the model 
+                                        ></DonationFormTwo>    {/* donation form */}
+                                    </div>
                                 </div>
                             </div>
-                            <div className='divider lg:divider-horizontal'></div>
-                            <div className='w-[50%]'>
-                                
 
-                                <div>
-                                    <DonationFormTwo
-                                    selectedStepCardAmount={selectedAmount}
-                                    resetForm={resetForm}
-                                    setResetForm={setResetForm}
-                                    ></DonationFormTwo>    {/* donation form */}
-                                </div>
-                            </div>
                         </div>
-
-                    </div>
-                </dialog>
+                    </dialog>
+                }
                 {/* Donation form */}
 
             </div>

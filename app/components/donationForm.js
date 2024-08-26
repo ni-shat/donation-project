@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form';
 import DonationFormBioDetails from './donationFormBioDetails';
-import { db } from '@/app/firebase.config';
+import { db } from '@/app/firebase';
 import { collection, addDoc } from 'firebase/firestore';
 import { createDonationData } from '@/services/api';
 
@@ -47,10 +47,10 @@ export default function DonationForm({ selectedStepCardAmount }) {
         if (customAmount !== 'Other amount') {
             setSelectedOption(null)
         }
-        console.log('i wanna know the value of other amount in useeffect', customAmount)
+        //console.log('i wanna know the value of other amount in useeffect', customAmount)
     }, [customAmount])
 
-    console.log('i wanna know the value of other amount under useeffect', customAmount)
+    //console.log('i wanna know the value of other amount under useeffect', customAmount)
 
     useEffect(() => {
         setCustomAmount(selectedStepCardAmount || 'Other amount');
@@ -87,7 +87,7 @@ export default function DonationForm({ selectedStepCardAmount }) {
     };
 
     const handleOtherAmountBlur = () => {
-        console.log("in handler blur")
+        //console.log("in handler blur")
         const amount = parseFloat(customAmount.replace('$', ''), 10);
         if (amount < minimumDonation) {
             setIsTooltipVisible(true);
@@ -105,7 +105,7 @@ export default function DonationForm({ selectedStepCardAmount }) {
 
     const handleOtherAmountChange = (e) => {
         setIsTooltipVisible(false)
-        console.log('im there', e.target.value)
+        //console.log('im there', e.target.value)
 
         const validNumberPattern = /^[0-9]*\.?[0-9]*$/;
 
@@ -126,14 +126,14 @@ export default function DonationForm({ selectedStepCardAmount }) {
         // setCustomAmount(value);
     };
     const handleDonateButton = () => {
-        console.log('in handle donate function', customAmount, "custom amount")
+        //console.log('in handle donate function', customAmount, "custom amount")
         // isTooltipVisible ? setWarning(true) : setIsFirstStepCompleted(true)
         if (isTooltipVisible) {
             setWarning(true);
-            console.log('warning')
+            //console.log('warning')
             setShakeKey(prevKey => prevKey + 1);
             setIsFirstStepCompleted(false)
-            console.log('in shaking if')
+            //console.log('in shaking if')
         }
         //  else {
         //     setIsFirstStepCompleted(true);
@@ -146,12 +146,12 @@ export default function DonationForm({ selectedStepCardAmount }) {
 
         if (amount < minimumDonation) {
             setError('otherAmount', true);
-            console.log('in minimum if')
+            //console.log('in minimum if')
 
             return;
         }
-        console.log(data, amount);
-        console.log('custom amount', customAmount);
+        //console.log(data, amount);
+        //console.log('custom amount', customAmount);
         setIsFirstStepCompleted(true);
 
 
@@ -159,7 +159,7 @@ export default function DonationForm({ selectedStepCardAmount }) {
         // try {
         //     const response = await createDonationData(data);
         //     // alert('Data created successfully');
-        //     console.log('Response:', response);
+        //     //console.log('Response:', response);
         // } catch (error) {
         //     alert('Error creating data');
         //     console.error('Error creating data:', error);

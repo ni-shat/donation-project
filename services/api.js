@@ -1,14 +1,14 @@
 // @/services/api.js
 export async function createDonationData(data) {
   try {
-      const response = await fetch('http://localhost:4000/add', { // Change this URL to match your server endpoint
+      const response = await fetch('http://localhost:4000/donation-details', { // Change this URL to match your server endpoint
           method: 'POST',
           headers: {
               'Content-Type': 'application/json',
           },
           body: JSON.stringify(data),
       });
-      console.log('response from server',response)
+      //console.log('response from server',response)
 
       if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
