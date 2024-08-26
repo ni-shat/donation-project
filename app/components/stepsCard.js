@@ -152,7 +152,7 @@ export default function StepsCard() {
                 {
                     // resetForm &&
                     <dialog id="my_modal_3" className="modal w-full bg-white">
-                        <div className="modal-box w-[70%] max-w-none">
+                        <div className="modal-box w-[70%] max-w-none bg-white">
 
                             <form method="dialog">
                                 {/* if there is a button in form, it will close the modal */}
@@ -163,7 +163,7 @@ export default function StepsCard() {
                             </form>
 
                             {/* content */}
-                            <div className='flex gap-0 w-full'>
+                            <div className='flex gap-0 w-full bg-white'>
                                 <div className='space-y-4 w-[50%]'>
                                     <Image src={image2} alt='heart' placeholder='blur' className=' ' />
                                     {/* text content under image */}
