@@ -51,7 +51,7 @@ const CheckoutForm_Card = ({ amount, setShowPayWithCard, setShowPayment, setIsFi
         }
 
         // Call your API to create a payment intent
-        const response = await fetch('http://localhost:4000/create-payment-intent', {
+        const response = await fetch('https://charity-project-server.vercel.app/create-payment-intent', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

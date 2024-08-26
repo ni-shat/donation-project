@@ -1,7 +1,7 @@
 // @/services/api.js
 export async function createDonationData(data) {
   try {
-      const response = await fetch('http://localhost:4000/donation-details', { // Change this URL to match your server endpoint
+      const response = await fetch('https://charity-project-server.vercel.app/donation-details', { // Change this URL to match your server endpoint
           method: 'POST',
           headers: {
               'Content-Type': 'application/json',

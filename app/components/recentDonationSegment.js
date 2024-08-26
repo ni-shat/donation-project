@@ -12,7 +12,7 @@ export default function RecentDonationSegment() {
         // Fetch recent donations from the backend
         const fetchDonations = async () => {
             try {
-                const response = await fetch('http://localhost:4000/recent-donations');
+                const response = await fetch('https://charity-project-server.vercel.app/recent-donations');
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
                 }
