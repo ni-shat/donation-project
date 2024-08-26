@@ -3,6 +3,7 @@ import image3 from '@/public/images/image3.jpg'
 import image4 from '@/public/images/image4.jpg'
 import image5 from '@/public/images/image5.jpg'
 import Image from 'next/image'
+import DonateNowButton from './donateNowButton'
 
 export default function ThirdSegment() {
     return (
@@ -34,7 +35,14 @@ export default function ThirdSegment() {
                         Picture the smiles on the faces of needy families, and the warmth in the hearts of children who benefit from your charity.
                     </p>
                     <div>
-                        <button className="px-6 py-4 bg-primary text-white text-xl font-semibold mx-auto w-full h-auto rounded-sm mt-2">CLICK HERE TO GIVE GENEROUSLY TODAY!</button>
+                        {/* <button className="px-6 py-4 bg-primary text-white text-xl font-semibold mx-auto w-full h-auto rounded-sm mt-2">CLICK HERE TO GIVE GENEROUSLY TODAY!</button> */}
+                        <DonateNowButton
+                            width={"w-full"} lgWidth={"w-56"}
+                            height={"h-[65px]"}
+                            btnText={"CLICK HERE TO GIVE GENEROUSLY TODAY!"}
+                            textSize={"text-xl"}
+                            font={"font-semibold"}
+                        ></DonateNowButton>
                     </div>
                 </div>
             </div>
@@ -64,7 +72,14 @@ export default function ThirdSegment() {
                         Picture the smiles on the faces of needy families, and the warmth in the hearts of children who benefit from your charity.
                     </p>
                     <div>
-                        <button className="px-6 py-4 bg-primary text-white text-xl font-semibold mx-auto w-full h-auto rounded-sm mt-2">YES, I WANT TO ECHO THE ESSENCE OF THIS HADITH ON THE LESS-PRIVILEGED</button>
+                        {/* <button className="px-6 py-4 bg-primary text-white text-xl font-semibold mx-auto w-full h-auto rounded-sm mt-2">YES, I WANT TO ECHO THE ESSENCE OF THIS HADITH ON THE LESS-PRIVILEGED</button> */}
+                        <DonateNowButton
+                            width={"w-full"} lgWidth={"w-56"}
+                            height={"h-[85px]"}
+                            btnText={"YES, I WANT TO ECHO THE ESSENCE OF THIS HADITH ON THE LESS-PRIVILEGED"}
+                            textSize={"text-xl"}
+                            font={"font-semibold"}
+                        ></DonateNowButton>
                     </div>
                 </div>
             </div>
@@ -94,7 +109,14 @@ export default function ThirdSegment() {
                         Create a legacy filled with care and charity, just like the saying goes, &quot;The best of you are those who feed others&quot; - Musnad Ahmad 23926.
                     </p>
                     <div>
-                        <button className="px-6 py-4 bg-primary text-white text-xl font-semibold mx-auto w-full h-auto rounded-sm mt-2">YES, I WANT TO ESTABLISH THE LEGACY OF GIVING</button>
+                        {/* <button className="px-6 py-4 bg-primary text-white text-xl font-semibold mx-auto w-full h-auto rounded-sm mt-2">YES, I WANT TO ESTABLISH THE LEGACY OF GIVING</button> */}
+                        <DonateNowButton
+                            width={"w-full"} lgWidth={"w-56"}
+                            height={"h-[65px]"}
+                            btnText={"YES, I WANT TO ESTABLISH THE LEGACY OF GIVING"}
+                            textSize={"text-xl"}
+                            font={"font-semibold"}
+                        ></DonateNowButton>
                     </div>
                 </div>
             </div>
