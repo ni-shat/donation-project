@@ -244,13 +244,13 @@ export default function DonationFormTwo({ selectedStepCardAmount, resetForm, clo
     //console.log('type of custom amount here', typeof customAmount)
 
     return (
-        <div className='w-full h-full'>
+        <div className='w-full h-full bg-white'>
             {
                 isFirstStepCompleted ||
                 <form onSubmit={handleSubmit(onSubmit)} className=" mx-auto px-2 rounded ">
                     <p className='text-xl font-semibold text-center mb-10 border-b pb-5 pt-1'>Secure donation</p>
                     <div className={`mb-4 ${warning ? 'shake' : ''}`} key={shakeKey}>
-                        <ul tabIndex={0} className="  bg-base-100 rounded-box  w-full shadow">
+                        <ul tabIndex={0} className="  bg-white rounded-box  w-full shadow">
 
                             {
                                 donationOptions.map(option =>

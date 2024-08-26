@@ -44,10 +44,10 @@ export default function DonationFormBioDetails({ setIsFirstStepCompleted, donati
 
 
     return (
-        <div className=' h-full'>
+        <div className='bg-white h-full'>
             {
                 !showPayment ?
-                    <form onSubmit={handleSubmit(onSubmit)} className=" mx-auto p-3  rounded ">
+                    <form onSubmit={handleSubmit(onSubmit)} className=" mx-auto p-3 rounded bg-white">
                         <div className='hover:bg-gray-100 w-fit p-2 hover:cursor-pointer rounded-full'>
                             <FaArrowLeft onClick={handleClickedBack} />
                         </div>
@@ -58,31 +58,31 @@ export default function DonationFormBioDetails({ setIsFirstStepCompleted, donati
                             </div>
                         </div>
                         <div>
-                            <div className="mb-1">
+                            <div className="mb-1 bg-white">
                                 {/* <label htmlFor="firstName" className="block text-sm font-bold mb-1">First Name</label> */}
                                 <input
                                     type="text"
                                     id="firstName"
                                     {...register('firstName', { required: true })}
                                     placeholder='First name'
-                                    className="w-full px-3 py-2 border border-gray-300 shadow-md rounded custom-placeholder"
+                                    className="w-full px-3 py-2 bg-white border border-gray-300 shadow-md rounded custom-placeholder"
                                 />
                                 {errors.firstName && <span className="text-red-500">required</span>}
                             </div>
-                            <div className="mb-1">
+                            <div className="mb-1 bg-white">
                                 {/* <label htmlFor="lastName" className="block text-sm font-bold mb-1">Last Name</label> */}
                                 <input
                                     type="text"
                                     id="lastName"
                                     {...register('lastName', { required: true })}
                                     placeholder='Last name'
-                                    className="w-full px-3 py-2 border border-gray-300 shadow-md rounded custom-placeholder"
+                                    className="w-full px-3 py-2 bg-white border border-gray-300 shadow-md rounded custom-placeholder"
                                 />
                                 {errors.lastName && <span className="text-red-500">required</span>}
                             </div>
                         </div>
 
-                        <div className="mb-1 mt-0">
+                        <div className="mb-1 bg-white mt-0">
                             {/* <label htmlFor="email" className="block text-sm font-bold mb-1">Email</label> */}
                             <input
                                 type="email"
@@ -96,11 +96,11 @@ export default function DonationFormBioDetails({ setIsFirstStepCompleted, donati
                                     }
                                 })}
                                 placeholder='Email'
-                                className="w-full px-3 py-2 border border-gray-300 shadow-md rounded custom-placeholder"
+                                className="w-full px-3 py-2 bg-white border border-gray-300 shadow-md rounded custom-placeholder"
                             />
                             {errors.email && <span className="text-red-500">{errors.email.message}</span>}
                         </div>
-                        <div className="mb-1">
+                        <div className="mb-1 bg-white">
                             {/* <label htmlFor="phone" className="block text-sm font-bold mb-1">Email</label> */}
                             <input
                                 type="text"
@@ -114,7 +114,7 @@ export default function DonationFormBioDetails({ setIsFirstStepCompleted, donati
                                     }
                                 })}
                                 placeholder='Phone'
-                                className="w-full px-3 py-2 border border-gray-300 shadow-md rounded custom-placeholder"
+                                className="w-full px-3 py-2 bg-white border border-gray-300 shadow-md rounded custom-placeholder"
                             />
                             {errors.phone && <span className="text-red-500">{errors.phone.message}</span>}
                         </div>
