@@ -132,7 +132,7 @@ export default function StepsCard() {
                                     className='relative flex flex-col items-center'>
                                     {/* amount */}
                                     <p className={`absolute left-1/2 transform -translate-x-1/2 top-4 `}>
-                                        {d.amount}$
+                                        {d.amount}£
                                     </p>
                                 </div>
                             ))

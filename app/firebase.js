@@ -6,12 +6,12 @@ import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
-    apiKey: "AIzaSyC57ojWRxljN2mGw1Ub0XMswqentSfJ4uk",
-    authDomain: "donation-project-5c8dc.firebaseapp.com",
-    projectId: "donation-project-5c8dc",
-    storageBucket: "donation-project-5c8dc.appspot.com",
-    messagingSenderId: "560871968255",
-    appId: "1:560871968255:web:6bd9c9f8e21242f76b2bca"
+    apiKey: "AIzaSyAUsmdRnnVdlqWYDGsAjytJu0V3t91ob7I",
+    authDomain: "charity-project-d0459.firebaseapp.com",
+    projectId: "charity-project-d0459",
+    storageBucket: "charity-project-d0459.appspot.com",
+    messagingSenderId: "232757928303",
+    appId: "1:232757928303:web:6306ed6cf58606ad96489a"
 };
 
 // Initialize Firebase
@@ -22,13 +22,3 @@ const db = getFirestore(app);
 
 export { db };
 
-
-// rules_version = '2';
-
-// service cloud.firestore {
-//   match /databases/{database}/documents {
-//      match /donations/{document=**} {
-//       allow read, write: if false;
-//     }
-//   }
-// }

@@ -19,7 +19,7 @@ export default function PaymentSuccess({ amount, handleClickedBack, transactionI
                     <FaCheck />
                 </div>
                 <div>
-                    <p className='text-2xl font-extra-extra-bold mt-6'>{`$${amount / 100}`}</p>
+                    <p className='text-2xl font-extra-extra-bold mt-6'>{`£${amount / 100}`}</p>
                 </div>
 
                 <div>
