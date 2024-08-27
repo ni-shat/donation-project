@@ -116,6 +116,27 @@ const CheckoutForm_Card = ({ amount, setShowPayWithCard, setShowPayment, setIsFi
                 setServerError(errorMessage);
                 setServerSuccess(null);
             }
+
+            // post total amount data in totalCollected collection
+            try {
+                const response = await fetch('https://charity-project-server.vercel.app/update-total-collected', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ amount }),
+                });
+
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+
+                const data = await response.json();
+                console.log('Response from server:', data.message);
+            } catch (error) {
+                console.error('Error posting total collected amount:', error);
+            }  
+            // end posting data in totalCollected collection
         }
         else {
             setError('Payment failed.');
