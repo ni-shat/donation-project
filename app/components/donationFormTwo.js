@@ -257,7 +257,8 @@ export default function DonationFormTwo({ selectedStepCardAmount, resetForm, clo
                                     <li key={option.id} className={`px-4 py-2  ${selectedOption === option.amount ? 'bg-blue-100 ' : ''} p-0 rounded border-b`}>
                                         <label className="flex items-center justify-between hover:cursor-pointer">
                                             <p className='font-semibold text-xl '>{`£${option.amount}`}</p>
-                                            <p className="md:text-base text-xs"> {`- ${option.description}`}</p>
+                                            <p>- </p>
+                                            <p className="md:text-base text-xs"> {`${option.description}`}</p>
                                             <input
                                                 type="radio"
                                                 value={selectedOption ? option.amount : ''}
@@ -324,7 +325,7 @@ export default function DonationFormTwo({ selectedStepCardAmount, resetForm, clo
                             <input
                                 type="text"
                                 {...register('HonoreeName')}
-                                className={`input input-bordered w-full h-9 mt-2 border-2 focus:border-2 custom-placeholder`}
+                                className={`input input-bordered w-full h-9 mt-2 border-2 focus:border-2 custom-placeholder bg-white `}
                                 placeholder='Honoree name'
                             />
                         }

@@ -132,7 +132,7 @@ export default function StepsCard() {
                                 <button
                                     // onClick={() => setResetForm(true)}
                                     onClick={closeModal}
-                                    className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
+                                    className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2 ">✕</button>
                             </form>
 
                             {/* content */}

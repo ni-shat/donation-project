@@ -134,7 +134,7 @@ export default function DonationFormBioDetails({ setIsFirstStepCompleted, donati
                             <label className="flex items-center gap-3 bg-white">
                                 <input type="checkbox"
                                     {...register('terms', { required: 'You must agree to the terms and privacy policy' })}
-                                    className="w-4 h-4 border border-gray-300 bg-white appearance-none checked:bg-blue-500 checked:border-transparent focus:outline-none focus:ring-1 focus:ring-blue-500"
+                                    className="w-4 h-4 border border-gray-300 bg-white checked:bg-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 appearance-auto" 
                                     />
                                 <span className="label-text bg-white">I agree to <Link target="_blank" href="/terms-and-conditions" className='underline'>Terms and Privacy Policy</Link></span>
                             </label>
