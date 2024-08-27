@@ -46,8 +46,8 @@ export default function MonthlySupply() {
             </div>
 
 
-            <div className='lg:w-2/5 md:w-[70%] w-[95%] mx-auto bg-white '>
-                <p className='text-xl xl:mb-8 xl:pt-14 xl:px-8 px-3 py-3'>How many months of hot meals can you provide?</p>
+            <div className='xl:w-2/5 lg:w-[65%] md:w-[70%] w-[95%] mx-auto bg-white '>
+                <p className='text-xl xl:mb-8 xl:pt-14 xl:px-8 lg:px-6 px-3 md:pt-8 py-3'>How many months of hot meals can you provide?</p>
                 <StepsCard></StepsCard>
             </div>
 

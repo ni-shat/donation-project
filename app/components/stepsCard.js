@@ -5,7 +5,7 @@ import heart from '@/public/images/heart.png'
 import image2 from '@/public/images/image2.jpg'
 import DonationForm from './donationForm';
 import DonationFormTwo from './donationFormTwo';
-import { useModal } from '../context/ModalContext'; 
+import { useModal } from '../context/ModalContext';
 
 
 export default function StepsCard() {
@@ -24,7 +24,7 @@ export default function StepsCard() {
         setSelectedOtherAmount(selectedAmount);
         openModal();
     };
-    
+
 
     const data = [
         {
@@ -51,7 +51,7 @@ export default function StepsCard() {
 
     return (
         <div className='mt-24 relative w-full h-52 '>
-          
+
 
             <div className='absolute w-full '>
                 <div className='relative flex items-center justify-center'>
@@ -74,24 +74,23 @@ export default function StepsCard() {
                                     {/* tooltip */}
                                     {selectedAmount === d.amount && (
                                         <div
-                                            className='absolute -top-14 left-1/2 transform -translate-x-1/2 z-10 '
+                                        className='absolute xl:-top-14 md:-top-16 left-1/2 transform -translate-x-1/2 z-10 '
                                         >
                                             {/* Tooltip Container */}
-                                            <div className={`relative right-0 lg:block hidden`}>
+                                            <div className={`relative right-0 md:block hidden`}>
                                                 {/* Tooltip Arrow */}
                                                 <div className='absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-l-transparent border-r-transparent border-t-black'></div>
                                                 {/* Tooltip Box */}
                                                 <p className={`bg-white border flex justify-center items-center gap-[3px] border-black text-black text-sm rounded text-nowrap py-3.5 px-6 text-center relative
-                                                   
-                                                    ${(d.amount === 250 ? 'right-8' : (d.amount === 50 ? 'left-8' : 'right-0'))}
-                                                    
+                                                       ${(d.amount === '250' ? 'right-8' : (d.amount === '50' ? 'left-8' : 'right-0'))}
                                                     `}>
-                                                    Provide for<Image src={heart} alt='heart' placeholder='blur' className='xl:w-[12%] lg:w-[21%] md:w-[26%] sm:w-[29%] w-[31%] ' />
+                                                    Provide for<Image src={heart} alt='heart' placeholder='blur' className='xl:w-[12%] lg:w-[15%] md:w-[15%] sm:w-[29%] w-[31%] ' />
                                                     {d.monthsOfHotMeals} months
                                                 </p>
                                             </div>
                                         </div>
                                     )} {/* end tooltip */}
+                                   
 
                                 </div>
                             ))
@@ -126,14 +125,14 @@ export default function StepsCard() {
                 {/* modal */}
                 {
                     <dialog id="my_modal_3" className="modal w-full ">
-                        <div className="modal-box md:w-[70%] w-full max-w-none bg-white">
+                        <div className="modal-box xl:w-[70%] w-full max-w-none bg-white">
 
                             <form method="dialog">
                                 {/* if there is a button in form, it will close the modal */}
-                                <button 
-                                // onClick={() => setResetForm(true)}
-                                onClick={closeModal}
-                                className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
+                                <button
+                                    // onClick={() => setResetForm(true)}
+                                    onClick={closeModal}
+                                    className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
                             </form>
 
                             {/* content */}
