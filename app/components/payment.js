@@ -1,13 +1,9 @@
 import { useEffect, useState } from 'react';
 import { FaArrowLeft } from 'react-icons/fa';
-import CheckoutForm_Card from './checkOutForm_Card';
-import { Elements } from '@stripe/react-stripe-js';
 import { loadStripe } from '@stripe/stripe-js';
 import PayWithCard from './payWithCard';
 export const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY);
 
-
-// const stripePromise = loadStripe(import.meta.env.VITE_Payment_Gateway_PK);
 
 export default function Payment({ combinedData, showPayment, setShowPayment, setIsFirstStepCompleted, closeModal }) {
 
@@ -15,8 +11,6 @@ export default function Payment({ combinedData, showPayment, setShowPayment, set
     const [showPayWithCard, setShowPayWithCard] = useState(false); // default amount in cents ($50.00)
     const [showGooglePay, setShowGooglePay] = useState(false); // default amount in cents ($50.00)
 
-    // //console.log('combined data', combinedData)
-    //console.log('checking true false data', showPayWithCard, showGooglePay)
 
     useEffect(() => {
         setAmount(parseFloat(combinedData.donation) * 100);
@@ -24,44 +18,6 @@ export default function Payment({ combinedData, showPayment, setShowPayment, set
 
 
 
-
-    // const handleCardCheckout = async () => {
-    //     const stripe = await stripePromise;
-
-    //     const response = await fetch('/api/create-checkout-session', {
-    //         method: 'POST',
-    //         headers: {
-    //             'Content-Type': 'application/json',
-    //         },
-    //         body: JSON.stringify({ amount }),
-    //     });
-
-    //     const session = await response.json();
-
-    //     const result = await stripe.redirectToCheckout({
-    //         sessionId: session.id,
-    //     });
-
-    //     if (result.error) {
-    //         console.error(result.error.message);
-    //     }
-    // };
-
-
-    // const handleGooglePay = async () => {
-    //     const stripe = await stripePromise;
-
-    //     const { error } = await stripe.confirmPayment({
-    //         elements: paymentRequest.elements,
-    //         confirmParams: {
-    //             return_url: `${process.env.NEXT_PUBLIC_URL}/success`,
-    //         },
-    //     });
-
-    //     if (error) {
-    //         console.error(error.message);
-    //     }
-    // };
 
     const handleClickedBack = () => {
         setShowPayment(false);
@@ -88,10 +44,6 @@ export default function Payment({ combinedData, showPayment, setShowPayment, set
                             Pay with Card
                         </button>
                     </div>
-
-                    {/* <button className='flex justify-center mt-4 bg-blue-900 py-2 text-white w-full' onClick={() => setShowGooglePay(true)}>
-                        Pay with Google Pay
-                    </button> */}
                 </div>
 
             }

@@ -1,16 +1,12 @@
 import React, { useState } from 'react'
 import { useForm } from 'react-hook-form';
 import { FaArrowLeft } from "react-icons/fa";
-import { db } from '@/app/firebase';
-import { collection, addDoc } from 'firebase/firestore';
-import { createDonationData } from '@/services/api';
 import Link from 'next/link';
 import Payment from './payment';
 
 
 export default function DonationFormBioDetails({ setIsFirstStepCompleted, donationDetails, closeModal }) {
 
-    const [isSubscribed, setIsSubscribed] = useState(false);
     const [showPayment, setShowPayment] = useState(false);
     const [combinedData, setCombinedData] = useState({});
 
@@ -19,27 +15,14 @@ export default function DonationFormBioDetails({ setIsFirstStepCompleted, donati
     const onSubmit = async (data) => {
         console.log("data and donationDetails is donationFormBioDetails", data, donationDetails);
         const combinedData = { ...data, ...donationDetails };
-        //console.log(combinedData);
         setCombinedData(combinedData)
 
         // go to payment component
         setShowPayment(true);
-
-        //post data to database
-        // try {
-        //     const response = await createDonationData(combinedData);
-        //     //console.log('Response:', response);
-        // } catch (error) {
-        //     alert('Error creating data');
-        //     console.error('Error creating data:', error);
-        // }
     };
 
     const handleClickedBack = () => {
         setIsFirstStepCompleted(false)
-        // if (customAmount !== 'Other amount') {
-        //     setSelectedOption(null);
-        // }
     }
 
 
@@ -59,7 +42,6 @@ export default function DonationFormBioDetails({ setIsFirstStepCompleted, donati
                         </div>
                         <div>
                             <div className="mb-1 bg-white">
-                                {/* <label htmlFor="firstName" className="block text-sm font-bold mb-1">First Name</label> */}
                                 <input
                                     type="text"
                                     id="firstName"
@@ -70,7 +52,6 @@ export default function DonationFormBioDetails({ setIsFirstStepCompleted, donati
                                 {errors.firstName && <span className="text-red-500">required</span>}
                             </div>
                             <div className="mb-1 bg-white">
-                                {/* <label htmlFor="lastName" className="block text-sm font-bold mb-1">Last Name</label> */}
                                 <input
                                     type="text"
                                     id="lastName"
@@ -83,11 +64,9 @@ export default function DonationFormBioDetails({ setIsFirstStepCompleted, donati
                         </div>
 
                         <div className="mb-1 bg-white mt-0">
-                            {/* <label htmlFor="email" className="block text-sm font-bold mb-1">Email</label> */}
                             <input
                                 type="email"
                                 id="email"
-                                // {...register('email', { required: true, pattern: /^[^@ ]+@[^@ ]+\.[^@ .]{2,}$/ })}
                                 {...register('email', {
                                     required: 'required',
                                     pattern: {
@@ -100,16 +79,13 @@ export default function DonationFormBioDetails({ setIsFirstStepCompleted, donati
                             />
                             {errors.email && <span className="text-red-500">{errors.email.message}</span>}
                         </div>
-                        <div className="mb-1 bg-white">
-                            {/* <label htmlFor="phone" className="block text-sm font-bold mb-1">Email</label> */}
+                        {/* <div className="mb-1 bg-white">
                             <input
                                 type="text"
                                 id="phone"
-                                // {...register('phone', { required: true, pattern: /^[^@ ]+@[^@ ]+\.[^@ .]{2,}$/ })}
                                 {...register('phone', {
                                     required: 'required',
                                     pattern: {
-                                        // value: /^\+?[1-9]\d{1,14}$/, //pattern according to the phone number format you expect
                                         message: 'enter a valid phone number'
                                     }
                                 })}
@@ -117,19 +93,8 @@ export default function DonationFormBioDetails({ setIsFirstStepCompleted, donati
                                 className="w-full px-3 py-2 bg-white border border-gray-300 shadow-md rounded custom-placeholder"
                             />
                             {errors.phone && <span className="text-red-500">{errors.phone.message}</span>}
-                        </div>
-
-                        {/* <div className="mt-5">
-                            <label className="flex items-center gap-3">
-                                <input type="checkbox"
-                                    defaultChecked={isSubscribed}
-                                    className="w-4 h-4 border"
-                                    onChange={(e) => setIsSubscribed(e.target.checked)}
-                                    {...register('isSubscribed')}
-                                />
-                                <span className="label-text">Subscribe to our mailing list</span>
-                            </label>
                         </div> */}
+
                         <div className="mt-5 bg-white">
                             <label className="flex items-center gap-3 bg-white">
                                 <input
@@ -157,8 +122,6 @@ export default function DonationFormBioDetails({ setIsFirstStepCompleted, donati
 
                         <button type="submit"
                             className="w-full px-3 py-2 bg-blue-500 te border-gray-300 shadow-md-rounded text-white rounded mt-6"
-                        // onClick={isTooltipVisible ? setWarning(true) : setIsFirstStepCompleted(true)}
-                        // onClick={handleDonateButton}
                         >Donate</button>
 
 

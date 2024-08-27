@@ -16,7 +16,6 @@ export default function WhoWeAreSegment() {
                         WHO WE ARE
                     </h3>
                     <hr className='bg-gray-800 text-gray-800 h-[1px]' />
-                    {/* <div className="divider divider-neutral h-1"></div> */}
 
                     <p className='text-xl font-normal'>
                         Spotlight Humanity is a 100% donation policy charity, working hard to relieve poverty and suffering both locally and globally. We provide food aid, water aid, shelter, orphan sponsorships and more in destitute countries.

@@ -74,7 +74,6 @@ export default function ThirdSegment() {
                         Picture the smiles on the faces of needy families, and the warmth in the hearts of children who benefit from your charity.
                     </p>
                     <div>
-                        {/* <button className="px-6 py-4 bg-primary text-white text-xl font-semibold mx-auto w-full h-auto rounded-sm mt-2">YES, I WANT TO ECHO THE ESSENCE OF THIS HADITH ON THE LESS-PRIVILEGED</button> */}
                         <DonateNowButton
                             width={"w-full"} lgWidth={"w-56"}
                             height={"h-[85px]"}
@@ -111,7 +110,6 @@ export default function ThirdSegment() {
                         Create a legacy filled with care and charity, just like the saying goes, &quot;The best of you are those who feed others&quot; - Musnad Ahmad 23926.
                     </p>
                     <div>
-                        {/* <button className="px-6 py-4 bg-primary text-white text-xl font-semibold mx-auto w-full h-auto rounded-sm mt-2">YES, I WANT TO ESTABLISH THE LEGACY OF GIVING</button> */}
                         <DonateNowButton
                             width={"w-full"} lgWidth={"w-56"}
                             height={"h-[65px]"}

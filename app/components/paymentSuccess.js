@@ -1,9 +1,8 @@
 import React from 'react'
-import { FaArrowLeft, FaCheck, FaCheckCircle } from 'react-icons/fa'
+import { FaArrowLeft, FaCheck } from 'react-icons/fa'
 
 export default function PaymentSuccess({ amount, handleClickedBack, transactionId, closeModal }) {
 
-    //console.log(closeModal)
     return (
         <div>
             <div className='hover:bg-gray-100 w-fit p-2 hover:cursor-pointer rounded-full'>
@@ -23,32 +22,12 @@ export default function PaymentSuccess({ amount, handleClickedBack, transactionI
                 </div>
 
                 <div>
-                    {/* <p className='text-base font-semibold uppercase'>Your donation was successful!</p> */}
                 </div>
                 <div className='text-center space-y-2  py-3 border-y'>
                     <p className='text-xl font-semibold '>Thank you for making a difference!</p>
                     <p className='text-sm font-semibold '>Your generous support is greatly appreciated!</p>
                     <p className='text-sm font-normal mt-2'>Transaction ID: {transactionId}</p>
                 </div>
-
-
-                {/* <div>
-                    <p className='text-base font-semibold uppercase'>Your donation was successful!</p>
-                </div> */}
-
-                {/* <div className='space-y-1 border-t pt-4 border-b pb-4 mb-4 text-center'>
-                    <p className='text-base font-semibold uppercase'>Thank you for making a difference!</p>
-                    <p className='text-sm font-semibold uppercase'>Your generous support is greatly appreciated!</p>
-                    <p className='text-sm font-normal mt-2'>Transaction ID: {transactionId}</p>
-                </div> */}
-
-                {/* <div>
-                    <p className='text-sm font-normal mt-8 border-t pt-4'>Transaction ID: {transactionId}</p>
-                </div> */}
-
-                {/* <div>
-                    <p className='text-[12px] text-green-600  uppercase'>Your receipt will be emailed to you shortly.</p>
-                </div> */}
 
                 <div className='mt-4 flex justify-between gap-2'>
                     <button onClick={handleClickedBack} className='px-4 py-2 w-48 bg-blue-500 text-white rounded font-semibold hover:cursor-pointer hover:bg-opacity-50'>
@@ -59,10 +38,6 @@ export default function PaymentSuccess({ amount, handleClickedBack, transactionI
                     </button>
                 </div>
             </div>
-
-            {/* <FaCheckCircle /> */}
-            {/* <FaCheck /> */}
-
 
         </div>
     )

@@ -4,7 +4,6 @@ import React, { useState } from 'react'
 import heart from '@/public/images/heart.png'
 import image2 from '@/public/images/image2.jpg'
 import DonationForm from './donationForm';
-import DonationFormTwo from './donationFormTwo';
 import { useModal } from '../context/ModalContext';
 
 
@@ -13,12 +12,7 @@ export default function StepsCard() {
     const [selectedAmount, setSelectedAmount] = useState("250");
     const [selectedOtherAmount, setSelectedOtherAmount] = useState("Other amount");
     const [resetForm, setResetForm] = useState(false);
-    //console.log("selectedAmount", selectedAmount)
     const { openModal, closeModal } = useModal();
-
-    const handleClick = (id) => {
-        setSelectedAmount(id);
-    };
 
     const openModalFromStepsCard = () => {
         setSelectedOtherAmount(selectedAmount);
@@ -130,7 +124,6 @@ export default function StepsCard() {
                             <form method="dialog">
                                 {/* if there is a button in form, it will close the modal */}
                                 <button
-                                    // onClick={() => setResetForm(true)}
                                     onClick={closeModal}
                                     className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2 md:bg-white bg-gray-700 md:text-black text-white">✕</button>
                             </form>
@@ -151,11 +144,11 @@ export default function StepsCard() {
                                 <div className='xl:w-[50%] lg:w-[50%] md:w-[50%] sm:w-full w-full'>
 
                                     <div>
-                                        <DonationFormTwo
+                                        <DonationForm
                                             selectedStepCardAmount={selectedOtherAmount}
                                             resetForm={resetForm}
                                             closeModal={closeModal} // to close the model 
-                                        ></DonationFormTwo>    {/* donation form */}
+                                        ></DonationForm>    {/* donation form */}
                                     </div>
                                 </div>
                             </div>
@@ -166,7 +159,6 @@ export default function StepsCard() {
                 {/* Donation form */}
 
             </div>
-
 
         </div>
     )

@@ -2,11 +2,11 @@
 import React, { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form';
 import DonationFormBioDetails from './donationFormBioDetails';
-import { db } from '@/app/firebase';
-import { collection, addDoc } from 'firebase/firestore';
-import { createDonationData } from '@/services/api';
+import { useModal } from '../context/ModalContext';
 
-export default function DonationForm({ selectedStepCardAmount }) {
+export default function DonationForm({ selectedStepCardAmount, resetForm, closeModal }) {
+
+    const { openingModalFromOtherBtn } = useModal();
 
     const donationOptions = [
         {
@@ -38,9 +38,35 @@ export default function DonationForm({ selectedStepCardAmount }) {
     const [warning, setWarning] = useState(false);
     const [isFirstStepCompleted, setIsFirstStepCompleted] = useState(false);
     const [shakeKey, setShakeKey] = useState(0); // Key to force re-render
-    const minimumDonation = 20.0;
+    const [isSubscribed, setIsSubscribed] = useState(false);
+    const [isAgreed, setIsAgreed] = useState(false);
+    const [donationDetails, setDonationDetails] = useState(false);
+    const minimumDonation = 1.0;
 
-    const { register, handleSubmit, setValue, setError, formState: { errors } } = useForm();
+    const { register, handleSubmit, setValue, setError, reset, formState: { errors } } = useForm();
+
+    // useEffect(() => {
+    //     // Reset form when `resetForm` prop changes
+    //     if (resetForm) {
+    //         setCustomAmount('Other amount');
+    //         setSelectedOption(null);
+    //         setIsFocused(false);
+    //         setIsTooltipVisible(false);
+    //         setIsDedicated(false);
+    //         setIsFirstStepCompleted(false);
+    //         reset();
+    //         setResetForm(false);
+    //     }
+    // }, [resetForm, setResetForm]);
+
+    useEffect(() => {
+        if (openingModalFromOtherBtn) {
+            setSelectedOption("20"); 
+            setValue('donation', '20');
+        } else {
+            setSelectedOption(null); 
+        }
+    }, [openingModalFromOtherBtn]);
 
     useEffect(() => {
         if (customAmount !== 'Other amount') {
@@ -79,10 +105,14 @@ export default function DonationForm({ selectedStepCardAmount }) {
         setIsFocused(true);
         // setSelectedOption(null)
         if (selectedOption !== null) {
-            setCustomAmount('$' + selectedOption);
+            //console.log(selectedOption)
+            // setCustomAmount('$' + selectedOption);
+            setCustomAmount(selectedOption);
+            // setCustomAmount(`$${selectedOption}`);
             setValue('otherAmount', selectedOption);
         }
         setSelectedOption(null);
+        //console.log('selected option', selectedOption)
     };
 
     const handleOtherAmountBlur = () => {
@@ -95,53 +125,112 @@ export default function DonationForm({ selectedStepCardAmount }) {
         }
     };
 
+    // const handleOtherAmountKeyDown = (e) => {
+    //     const cursorPosition = e.target.selectionStart;
+    //     if (cursorPosition <= 0 && (e.key === 'Backspace' || e.key === 'Delete' || e.key === 'ArrowLeft')) {
+    //         e.preventDefault();
+    //     }
+    // };
     const handleOtherAmountKeyDown = (e) => {
+        // Get the current input value and cursor position
+        const inputValue = e.target.value;
         const cursorPosition = e.target.selectionStart;
-        if (cursorPosition <= 1 && (e.key === 'Backspace' || e.key === 'Delete' || e.key === 'ArrowLeft')) {
+
+        // Check if the entire input is selected and a delete key is pressed
+        if (inputValue.length > 0 && cursorPosition === 0 && (e.key === 'Backspace' || e.key === 'Delete')) {
+            // Set value to '0' or an empty string
+            setCustomAmount('0');
+            setValue('donation', '0');
+            setValue('otherAmount', '0');
+        }
+
+        // Prevent deletion if the cursor is at the start and the key is Backspace
+        if (cursorPosition <= 0 && (e.key === 'Backspace' || e.key === 'Delete')) {
             e.preventDefault();
         }
     };
 
+
+    // const handleOtherAmountChange = (e) => {
+    //     setIsTooltipVisible(false)
+    //     //console.log('im there', e.target.value)
+
+    //     const validNumberPattern = /^[0-9]*\.?[0-9]*$/;
+
+    //     let value = e.target.value;
+    //     if (!value.startsWith('$')) {
+    //         value = '$' + value;
+    //     }
+    //     value = '$' + value.slice(1).replace(/^0+/, '');
+
+    //     if (value === '$') {
+    //         value = '$' + '0';
+    //     }
+    //     if (validNumberPattern.test(value.slice(1))) {
+    //         setCustomAmount(value);
+    //         setValue('donation', value);
+    //         setValue('otherAmount', value);
+    //     }
+    //     // setCustomAmount(value);
+    // };
+
     const handleOtherAmountChange = (e) => {
-        setIsTooltipVisible(false)
-        //console.log('im there', e.target.value)
+        setIsTooltipVisible(false);
+        const inputValue = e.target.value;
 
+        // Check if the input value is empty or just zero
+        if (inputValue === '' || inputValue === '0') {
+            setCustomAmount('0');
+            setValue('donation', '0');
+            setValue('otherAmount', '0');
+            return;
+        }
+
+        // Remove any non-numeric characters except for the decimal point
         const validNumberPattern = /^[0-9]*\.?[0-9]*$/;
+        if (validNumberPattern.test(inputValue)) {
+            // Remove leading zeros if present
+            let value = inputValue.replace(/^0+(?![0])/, '');
 
-        let value = e.target.value;
-        if (!value.startsWith('$')) {
-            value = '$' + value;
-        }
-        value = '$' + value.slice(1).replace(/^0+/, '');
+            // Ensure the value is not empty
+            if (value === '') {
+                value = '0';
+            }
 
-        if (value === '$') {
-            value = '$' + '0';
-        }
-        if (validNumberPattern.test(value.slice(1))) {
+            // Update the state with the formatted value
             setCustomAmount(value);
             setValue('donation', value);
             setValue('otherAmount', value);
         }
-        // setCustomAmount(value);
     };
+
+
+
+
+
+
     const handleDonateButton = () => {
-        //console.log('in handle donate function', customAmount, "custom amount")
-        // isTooltipVisible ? setWarning(true) : setIsFirstStepCompleted(true)
         if (isTooltipVisible) {
             setWarning(true);
-            //console.log('warning')
             setShakeKey(prevKey => prevKey + 1);
             setIsFirstStepCompleted(false)
-            //console.log('in shaking if')
         }
-        //  else {
-        //     setIsFirstStepCompleted(true);
-        // }
     }
 
 
+
+    // const handleClickedBack = () => {
+    //     setIsFirstStepCompleted(false)
+    //     // if (customAmount !== 'Other amount') {
+    //     //     setSelectedOption(null);
+    //     // }
+    // }
+
+
     const onSubmit = async (data) => {
-        const amount = parseFloat(data.donation.replace('$', ''));
+        const amount = parseFloat(data.donation);
+        delete data.otherAmount;
+        console.log("Amount in donationFormTwo: ", amount, data)
 
         if (amount < minimumDonation) {
             setError('otherAmount', true);
@@ -151,78 +240,80 @@ export default function DonationForm({ selectedStepCardAmount }) {
         }
         //console.log(data, amount);
         //console.log('custom amount', customAmount);
+        setDonationDetails(data);
         setIsFirstStepCompleted(true);
-
-
-        //post data to database
-        // try {
-        //     const response = await createDonationData(data);
-        //     // alert('Data created successfully');
-        //     //console.log('Response:', response);
-        // } catch (error) {
-        //     alert('Error creating data');
-        //     console.error('Error creating data:', error);
-        // }
     };
 
+
     return (
-        <div className='w-full'>
+        <div className='w-full h-full bg-white'>
             {
                 isFirstStepCompleted ||
-                
-                <form onSubmit={handleSubmit(onSubmit)} className=" mx-auto p-4 border rounded ">
+                <form onSubmit={handleSubmit(onSubmit)} className=" mx-auto md:px-2 px-0 rounded ">
+                    <p className='text-xl font-semibold text-center mb-10 border-b pb-5 pt-1'>Secure donation</p>
                     <div className={`mb-4 ${warning ? 'shake' : ''}`} key={shakeKey}>
-                        <ul tabIndex={0} className=" menu bg-base-100 rounded-box  w-full shadow">
+                        <ul tabIndex={0} className="  bg-white rounded-box  w-full shadow">
 
                             {
                                 donationOptions.map(option =>
-                                    <li key={option.id} className={`${selectedOption === option.amount ? 'bg-blue-100 ' : ''} p-0 rounded border-b`}>
-                                        <label className="flex items-center justify-between">
-                                            <p className='font-semibold text-xl'>{`$${option.amount}`}</p>
-                                            <p className=""> {`- ${option.description}`}</p>
+                                    <li key={option.id} className={`px-4 py-2  ${selectedOption === option.amount ? 'bg-blue-100 ' : ''} p-0 rounded border-b`}>
+                                        <label className="flex items-center justify-between hover:cursor-pointer">
+                                            <div className='flex items-center justify-between gap-1 '>
+                                                <div className=' flex-grow md:w-fit w-[17%]'>
+                                                    <p className='font-semibold text-xl '>{`£${option.amount}`}</p>
+                                                </div>
+                                                <div className='flex items-center gap-1'>
+                                                    <p>- </p>
+                                                    <p className="md:text-base text-[11px]"> {`${option.description}`}</p>
+                                                </div>
+                                            </div>
                                             <input
                                                 type="radio"
-                                                value={option.amount}
+                                                value={selectedOption ? option.amount : ''}
+                                                // value={selectedOption ? option.amount : ''}
                                                 {...register('donation')}
-                                                className={`radio`}
-                                                checked={selectedOption === option.amount}  // Check the first option by default
-                                                onChange={() => {
-                                                    handleOptionChange(option.amount);
-                                                }}
+                                                className={`radio `}
+                                                checked={selectedOption === option.amount ? true : false}  // Check the first option by default
+                                                onChange={() =>
+                                                    handleOptionChange(option.amount)
+                                                }
                                                 onClick={handleOptionClicked}
                                             />
                                         </label>
                                     </li>
                                 )
                             }
-                            {/* <li >
-                                
-                            </li> */}
+
+
                             <li >
                                 {
                                     customAmount === 'Other amount' ?
-                                        <p onClick={handleOtherAmountClicked}  className='bg-purple-500'>Other amount</p> :
-                                        <input
-                                            type="text"
-                                            {...register('otherAmount', { required: true })}
-                                            className={`w-full  ${typeof DefaultValue !== 'string' && 'bg-blue-100'}
-                                            ${isFocused ? 'border-2 border-blue-600 cursor-pointer bg-blue-100' : 'border-0'}
-                                            ${customAmount !== 'Other amount' ? 'border-2 border-blue-600 cursor-pointer bg-blue-100' : 'border-0'}
-                                `}
-                                            // defaultValue={typeof DefaultValue === 'string' ? DefaultValue : ''}
-                                            // value={customAmount}
-                                            value={(!customAmount.startsWith('$') && customAmount !== 'Other amount') ? '$' + customAmount : customAmount}
-                                            onClick={handleOtherAmountClicked} // when user will click Only amount
-                                            onChange={handleOtherAmountChange}
-                                            onKeyDown={handleOtherAmountKeyDown}
-                                            onBlur={handleOtherAmountBlur}
-                                            placeholder='Other amount'
-                                        />
+                                        <p onClick={handleOtherAmountClicked} className='hover:cursor-pointer px-4 py-2'>Other amount</p> :
+
+                                        <div className={`w-full  ${typeof DefaultValue !== 'string' && 'bg-blue-100'}
+                                        ${isFocused ? 'border-2 border-blue-600 cursor-pointer bg-blue-100' : 'border-0'}
+                                        ${customAmount !== 'Other amount' ? 'border-2 border-blue-600 cursor-pointer bg-blue-100' : 'border-0'} flex`}>
+                                            <p className='pl-4 py-2'>£</p>
+                                            <input
+                                                type="text"
+                                                className="borderless-input bg-blue-100 w-full pr-2 py-2"
+                                                {...register('otherAmount', { required: true })}
+
+                                                // defaultValue={typeof DefaultValue === 'string' ? DefaultValue : ''}
+
+                                                value={customAmount}
+                                                onClick={handleOtherAmountClicked} // when user will click Only amount
+                                                onChange={handleOtherAmountChange}
+                                                onKeyDown={handleOtherAmountKeyDown}
+                                                onBlur={handleOtherAmountBlur}
+                                            />
+                                        </div>
+
 
                                 }
                                 {isTooltipVisible && (
-                                    <div className="absolute top-full mt-2 p-2 bg-red-500 text-white rounded">
-                                        Minimum donation is ${minimumDonation}
+                                    <div className=" w-fit mt-2 p-2 bg-red-500 text-white rounded">
+                                        Minimum donation is £{minimumDonation}
                                     </div>
                                 )}
                             </li>
@@ -231,29 +322,44 @@ export default function DonationForm({ selectedStepCardAmount }) {
 
                     </div>
 
+
                     <div className="mt-5">
                         <label className="flex items-center gap-3">
-                            <input type="checkbox" defaultChecked={isDedicated} className="disabled w-4 h-4 border"
-                                onChange={(e) => setIsDedicated(e.target.checked)} />
+                            <input
+                                type="checkbox"
+                                defaultChecked={isDedicated}
+                                className="disabled w-[14px] h-[14px] border appearance-none checked:bg-blue-500 checked:border-transparent focus:outline-none focus:ring-1 focus:ring-blue-500 relative"
+                                onChange={(e) => setIsDedicated(e.target.checked)}
+                            />
                             <span className="label-text">Dedicate this donation</span>
+                            {/* Adding checkmark when checkbox is checked */}
+                            <style jsx>{`
+                                input:checked::after {
+                                    content: "✔";
+                                    font-size: 0.70rem;
+                                    color: white;
+                                    position: absolute;
+                                    top: 50%;
+                                    left: 50%;
+                                    transform: translate(-50%, -50%);
+                                    text-align: center;
+                                }
+                            `}</style>
                         </label>
-                        {
-                            isDedicated &&
+                        {isDedicated && (
                             <input
                                 type="text"
-                                {...register('dedicatedName')}
-                                className={`input input-bordered w-full h-9 mt-2 border-2 focus:border-2 custom-placeholder`}
-                                placeholder='Honoree name'
+                                {...register('HonoreeName')}
+                                className="input input-bordered w-full h-9 mt-2 border-2 focus:border-2 custom-placeholder bg-white"
+                                placeholder="Honoree name"
                             />
-                        }
-                    </div>
-
-                    <div className='mt-5 text-sm'>
-                        <p className='underline'>Add comment</p>
+                        )}
                     </div>
 
 
-                    <button type="submit" className="w-full p-2 bg-blue-500 text-white rounded mt-6"
+
+
+                    <button className="w-full p-2 bg-blue-500 text-white rounded mt-6"
                         // onClick={isTooltipVisible ? setWarning(true) : setIsFirstStepCompleted(true)}
                         onClick={handleDonateButton}
                     >Donate</button>
@@ -263,7 +369,8 @@ export default function DonationForm({ selectedStepCardAmount }) {
 
             {
                 isFirstStepCompleted &&
-                <DonationFormBioDetails setIsFirstStepCompleted={setIsFirstStepCompleted}></DonationFormBioDetails>
+                <DonationFormBioDetails setIsFirstStepCompleted={setIsFirstStepCompleted} donationDetails={donationDetails}
+                    closeModal={closeModal}></DonationFormBioDetails>
             }
         </div>
     )

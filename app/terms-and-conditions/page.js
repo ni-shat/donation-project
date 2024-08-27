@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function TermsCondition() {
     return (
-        <div className='xl:w-[75%] mx-auto my-10 leading-normal'>
+        <div className='xl:w-[75%] mx-auto my-10 leading-normal text-gray-800'>
             <div className=''>
                 <p className='text-3xl border-b mt-4 py-4 font-bold uppercase text-center'>Terms of Service</p>
                 <div className='my-4 mb-4'>

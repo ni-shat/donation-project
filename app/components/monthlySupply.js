@@ -4,8 +4,6 @@ import image7 from '@/public/images/image7.png'
 import StepsCard from './stepsCard'
 
 export default function MonthlySupply() {
-
-    
       
     return (
         <div className=' border-white border-t-2 pb-32 bg-slate-300 h-fit overflow-x-hidden'>

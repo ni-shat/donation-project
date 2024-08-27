@@ -62,5 +62,3 @@ export default function Progress() {
         </div>
     );
 }
-
-// TwoxlWidth xlWidth lgWidth={"lg:w-56"} mdWidth smWidth Width={"w-20"}

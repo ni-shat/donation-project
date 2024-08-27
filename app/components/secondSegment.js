@@ -35,7 +35,6 @@ export default function SecondSegment() {
                     Join us in supporting the families of Syria, and help bring hope and sustenance to those in need.
                 </p>
                 <div className='mt-2'>
-                    {/* <button className=" bg-primary text-white text-2xl font-semibold mx-auto w-full h-[75px] rounded-sm mt-2">Donate Now</button> */}
                     <DonateNowButton
                     width={"w-full"} lgWidth={"w-56"}
                     height={"h-[65px]"}
