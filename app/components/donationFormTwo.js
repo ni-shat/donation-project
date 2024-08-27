@@ -342,7 +342,7 @@ export default function DonationFormTwo({ selectedStepCardAmount, resetForm, clo
                             <input
                                 type="checkbox"
                                 defaultChecked={isDedicated}
-                                className="disabled w-4 h-4 border appearance-none checked:bg-blue-500 checked:border-transparent focus:outline-none focus:ring-1 focus:ring-blue-500 relative"
+                                className="disabled w-[14px] h-[14px] border appearance-none checked:bg-blue-500 checked:border-transparent focus:outline-none focus:ring-1 focus:ring-blue-500 relative"
                                 onChange={(e) => setIsDedicated(e.target.checked)}
                             />
                             <span className="label-text">Dedicate this donation</span>
@@ -350,13 +350,12 @@ export default function DonationFormTwo({ selectedStepCardAmount, resetForm, clo
                             <style jsx>{`
                                 input:checked::after {
                                     content: "✔";
-                                    font-size: 0.75rem;
+                                    font-size: 0.70rem;
                                     color: white;
                                     position: absolute;
-                                    top: 0.125rem;
-                                    left: 0.125rem;
-                                    width: 1rem;
-                                    height: 1rem;
+                                    top: 50%;
+                                    left: 50%;
+                                    transform: translate(-50%, -50%);
                                     text-align: center;
                                 }
                             `}</style>
@@ -370,6 +369,7 @@ export default function DonationFormTwo({ selectedStepCardAmount, resetForm, clo
                             />
                         )}
                     </div>
+
 
 
 
