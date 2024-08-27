@@ -74,17 +74,17 @@ export default function StepsCard() {
                                     {/* tooltip */}
                                     {selectedAmount === d.amount && (
                                         <div
-                                        className='absolute xl:-top-14 md:-top-16 left-1/2 transform -translate-x-1/2 z-10 '
+                                        className='absolute xl:-top-14 md:-top-16 -top-16 left-1/2 transform -translate-x-1/2 z-10 '
                                         >
                                             {/* Tooltip Container */}
-                                            <div className={`relative right-0 md:block hidden`}>
+                                            <div className={`relative right-0 `}>
                                                 {/* Tooltip Arrow */}
                                                 <div className='absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-l-transparent border-r-transparent border-t-black'></div>
                                                 {/* Tooltip Box */}
                                                 <p className={`bg-white border flex justify-center items-center gap-[3px] border-black text-black text-sm rounded text-nowrap py-3.5 px-6 text-center relative
                                                        ${(d.amount === '250' ? 'right-8' : (d.amount === '50' ? 'left-8' : 'right-0'))}
                                                     `}>
-                                                    Provide for<Image src={heart} alt='heart' placeholder='blur' className='xl:w-[12%] lg:w-[15%] md:w-[15%] sm:w-[29%] w-[31%] ' />
+                                                    Provide for<Image src={heart} alt='heart' placeholder='blur' className='xl:w-[12%] lg:w-[15%] md:w-[15%] sm:w-[10%] w-[10%] ' />
                                                     {d.monthsOfHotMeals} months
                                                 </p>
                                             </div>
@@ -132,12 +132,12 @@ export default function StepsCard() {
                                 <button
                                     // onClick={() => setResetForm(true)}
                                     onClick={closeModal}
-                                    className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2 ">✕</button>
+                                    className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2 md:bg-white bg-gray-700 md:text-black text-white">✕</button>
                             </form>
 
                             {/* content */}
-                            <div className='flex md:flex-row flex-col gap-0 w-full bg-white'>
-                                <div className='space-y-4 xl:w-[50%] lg:w-[50%] md:w-[50%] sm:w-full w-full'>
+                            <div className='flex md:flex-row flex-col-reverse gap-0 w-full bg-white md:mt-0 mt-2'>
+                                <div className='space-y-4 xl:w-[50%] lg:w-[50%] md:w-[50%] sm:w-[90%] w-[90%] mx-auto'>
                                     <Image src={image2} alt='image' placeholder='blur' className=' ' />
                                     {/* text content under image */}
                                     <div className='space-y-2'>

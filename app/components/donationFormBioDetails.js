@@ -8,7 +8,7 @@ import Link from 'next/link';
 import Payment from './payment';
 
 
-export default function DonationFormBioDetails({ setIsFirstStepCompleted, donationDetails , closeModal }) {
+export default function DonationFormBioDetails({ setIsFirstStepCompleted, donationDetails, closeModal }) {
 
     const [isSubscribed, setIsSubscribed] = useState(false);
     const [showPayment, setShowPayment] = useState(false);
@@ -17,7 +17,7 @@ export default function DonationFormBioDetails({ setIsFirstStepCompleted, donati
 
     const { register, handleSubmit, setValue, formState: { errors } } = useForm();
     const onSubmit = async (data) => {
-        console.log("data and donationDetails is donationFormBioDetails",data, donationDetails);
+        console.log("data and donationDetails is donationFormBioDetails", data, donationDetails);
         const combinedData = { ...data, ...donationDetails };
         //console.log(combinedData);
         setCombinedData(combinedData)
@@ -132,14 +132,28 @@ export default function DonationFormBioDetails({ setIsFirstStepCompleted, donati
                         </div> */}
                         <div className="mt-5 bg-white">
                             <label className="flex items-center gap-3 bg-white">
-                                <input type="checkbox"
+                                <input
+                                    type="checkbox"
                                     {...register('terms', { required: 'You must agree to the terms and privacy policy' })}
-                                    className="w-4 h-4 border border-gray-300 bg-white appearance-none checked:bg-blue-500 checked:border-transparent focus:outline-none focus:ring-1 focus:ring-blue-500"
-                                    />
+                                    className="w-4 h-4 border border-gray-300 bg-white appearance-none checked:bg-blue-500 checked:border-transparent focus:outline-none focus:ring-1 focus:ring-blue-500 relative"
+                                />
                                 <span className="label-text bg-white">I agree to <Link target="_blank" href="/terms-and-conditions" className='underline'>Terms and Privacy Policy</Link></span>
                             </label>
                             {errors.terms && <span className="text-red-500">{errors.terms.message}</span>}
                         </div>
+
+                        <style jsx>{`
+                            input[type="checkbox"]:checked::before {
+                                content: '✔'; /* Unicode checkmark or any symbol you want */
+                                display: block;
+                                color: white;
+                                position: absolute;
+                                top: 50%;
+                                left: 50%;
+                                transform: translate(-50%, -50%);
+                            }
+                        `}</style>
+
 
                         <button type="submit"
                             className="w-full px-3 py-2 bg-blue-500 te border-gray-300 shadow-md-rounded text-white rounded mt-6"
@@ -155,6 +169,6 @@ export default function DonationFormBioDetails({ setIsFirstStepCompleted, donati
                         closeModal={closeModal} // passing oldest state to close the whole modal
                     ></Payment>
             }
-        </div> 
+        </div>
     )
 }
