@@ -40,12 +40,12 @@ export default function RecentDonationSegment() {
     console.log('checking donations :', donations)
 
     return (
-        <div className='w-full mt-28 flex gap-10 justify-between flex-col md:flex-row'>
-            <div className='flex flex-col gap-4 items-center  justify-center text-center font-semibold md:w-2/4 w-full'>
-                <h3 className='text-3xl font-semibold'>
+        <div className='w-full lg:mt-28 mt-14 flex gap-10 justify-between flex-col md:flex-row'>
+            <div className='flex flex-col lg:gap-4 gap-1 items-center  justify-center text-center font-semibold md:w-2/4 w-full'>
+                <h3 className='lg:text-3xl text-2xl font-semibold'>
                     With No Food, No Water...
                 </h3>
-                <h2 className='text-5xl leading-snug'>
+                <h2 className='lg:text-5xl text-3xl lg:leading-snug leading-normal'>
                     Families Rely on Aid for Survival
                 </h2>
                 <p className='text-xl font-normal'>

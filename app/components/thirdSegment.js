@@ -7,17 +7,19 @@ import DonateNowButton from './donateNowButton'
 
 export default function ThirdSegment() {
     return (
-        <div className='mx-auto mt-16 2xl:w-[77%] xl:w-[90%]'>
-            <h3 className='text-[55px] font-bold text-center mb-4'>Why You Need To Donate?</h3>
+        <div className='mx-auto mt-16 2xl:w-[77%] xl:w-[90%]
+        
+        '>
+            <h3 className='md:text-[55px] text-4xl font-bold text-center mb-4'>Why You Need To Donate?</h3>
 
             {/* 1) */}
-            <div className='w-full flex gap-12 justify-between border rounded p-10 shadow-lg mb-6'>
+            <div className='w-full flex-col md:flex-row flex gap-12 justify-between border rounded p-10 shadow-lg mb-6'>
 
-                <div className='xl:w-[50%] lg:w-[50%] md:w-[50%] sm:w-[50%] w-[50%]'>
+                <div className='xl:w-[50%] lg:w-[50%] md:w-[50%] sm:w-full w-full'>
                     <Image src={image3} alt='image' placeholder='blur' className='' />
                 </div>
 
-                <div className='flex flex-col gap-4 text-start font-semibold w-2/4'>
+                <div className='flex flex-col gap-4 text-start font-semibold xl:w-[50%] lg:w-[50%] md:w-[50%] sm:w-full w-full'>
                     <h3 className='text-4xl font-semibold'>
                         1) Push Your Dua Forward With Charity
                     </h3>
@@ -48,13 +50,13 @@ export default function ThirdSegment() {
             </div>
 
             {/* 2) */}
-            <div className='w-full flex gap-12 justify-between border rounded p-10 shadow-lg mb-6'>
+            <div className='w-full flex-col md:flex-row flex gap-12 justify-between border rounded p-10 shadow-lg mb-6'>
 
-                <div className='xl:w-[50%] lg:w-[50%] md:w-[50%] sm:w-[50%] w-[50%]'>
+                <div className='xl:w-[50%] lg:w-[50%] md:w-[50%] sm:w-full w-full'>
                     <Image src={image4} alt='image' placeholder='blur' className='' />
                 </div>
 
-                <div className='flex flex-col gap-4 text-start font-semibold w-2/4'>
+                <div className='flex flex-col gap-4 text-start font-semibold xl:w-[50%] lg:w-[50%] md:w-[50%] sm:w-full w-full'>
                     <h3 className='text-4xl font-semibold'>
                         2) Bridge of Hope
                     </h3>
@@ -85,13 +87,13 @@ export default function ThirdSegment() {
             </div>
 
             {/* 3) */}
-            <div className='w-full flex gap-12 justify-between border rounded p-10 shadow-lg mb-5'>
+            <div className='w-full flex-col md:flex-row flex gap-12 justify-between border rounded p-10 shadow-lg mb-5'>
 
-                <div className='xl:w-[50%] lg:w-[50%] md:w-[50%] sm:w-[50%] w-[50%]'>
+                <div className='xl:w-[50%] lg:w-[50%] md:w-[50%] sm:w-full w-full'>
                     <Image src={image5} alt='image' placeholder='blur' className='' />
                 </div>
 
-                <div className='flex flex-col gap-4 text-start font-semibold w-2/4'>
+                <div className='flex flex-col gap-4 text-start font-semibold xl:w-[50%] lg:w-[50%] md:w-[50%] sm:w-full w-full'>
                     <h3 className='text-4xl font-semibold'>
                         3) Establishing a Legacy of Giving
                     </h3>

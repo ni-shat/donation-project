@@ -7,11 +7,11 @@ export default function SecondSegment() {
     return (
     <div className='w-full mt-24 flex flex-col md:flex-row gap-12 justify-between '>
 
-            <div className='xl:w-[50%] lg:w-[50%] md:w-[50%] sm:w-[50%] w-[50%]'>
+            <div className='xl:w-[50%] lg:w-[50%] md:w-[50%] sm:w-full w-full'>
                 <Image src={image2} alt='image' placeholder='blur' className='' />
             </div>
 
-            <div className='flex flex-col gap-4 text-start font-semibold w-2/4'>
+            <div className='flex flex-col gap-4 text-start font-semibold xl:w-[50%] lg:w-[50%] md:w-[50%] sm:w-full w-full px-2'>
                 <h3 className='text-4xl font-semibold'>
                     Families in Syria on The Brink of Survival:
                 </h3>

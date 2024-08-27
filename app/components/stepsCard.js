@@ -11,6 +11,7 @@ import { useModal } from '../context/ModalContext';
 export default function StepsCard() {
 
     const [selectedAmount, setSelectedAmount] = useState("250");
+    const [selectedOtherAmount, setSelectedOtherAmount] = useState("Other amount");
     const [resetForm, setResetForm] = useState(false);
     //console.log("selectedAmount", selectedAmount)
     const { openModal, closeModal } = useModal();
@@ -19,16 +20,11 @@ export default function StepsCard() {
         setSelectedAmount(id);
     };
 
-    // const openModal = () => {
-    //     // setResetForm(true)
-    //     // document.getElementById('my_modal_3').showModal()
-    //     const modal = document.getElementById('my_modal_3');
-    //     if (modal) modal.showModal();
-    // };
-    // const closeModal = () => {
-    //     const modal = document.getElementById('my_modal_3');
-    //     if (modal) modal.close();
-    // };
+    const openModalFromStepsCard = () => {
+        setSelectedOtherAmount(selectedAmount);
+        openModal();
+    };
+    
 
     const data = [
         {
@@ -55,23 +51,7 @@ export default function StepsCard() {
 
     return (
         <div className='mt-24 relative w-full h-52 '>
-            {/* <div className=''>
-                <ul className="steps steps-vertical lg:steps-horizontal w-full top-20  ">
-                    {
-                        data.map(d =>
-                            <div key={d.amount} className="tooltip tooltip-open top-0" data-tip="hello">
-                                <li data-content="●"
-                                    onClick={() => setSelectedAmount(d.amount)}
-                                    className={`step top-0 ${selectedAmount === d.amount ? 'step-primary' : ''}`}
-                                >
-                                    {d.amount}$
-                                </li>
-                            </div>
-                        )
-                    }
-                </ul>
-            </div> */}
-            {/* <hr className='  bg-black h-1' /> */}
+          
 
             <div className='absolute w-full '>
                 <div className='relative flex items-center justify-center'>
@@ -102,11 +82,11 @@ export default function StepsCard() {
                                             className='absolute -top-14 left-1/2 transform -translate-x-1/2 z-10 '
                                         >
                                             {/* Tooltip Container */}
-                                            <div className={`relative right-0`}>
+                                            <div className={`relative right-0 lg:block hidden`}>
                                                 {/* Tooltip Arrow */}
                                                 <div className='absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-l-transparent border-r-transparent border-t-black'></div>
                                                 {/* Tooltip Box */}
-                                                <p className={`bg-white border flex justify-center items-center gap-[3px] border-black text-black text-sm rounded text-nowrap py-3.5 px-6 text-center relative 
+                                                <p className={`bg-white border flex justify-center items-center gap-[3px] border-black text-black text-sm rounded text-nowrap py-3.5 px-6 text-center relative
                                                    
                                                     ${(d.amount === 250 ? 'right-8' : (d.amount === 50 ? 'left-8' : 'right-0'))}
                                                     
@@ -146,13 +126,12 @@ export default function StepsCard() {
                 {/* donation form */}
                 <button
                     className=" bg-gray-800 text-white text-base font-semibold mx-auto w-40 h-12 rounded-sm relative flex items-center justify-center top-[78px] uppercase"
-                    onClick={openModal}
+                    onClick={openModalFromStepsCard}
                 >Donate Now</button>
                 {/* modal */}
                 {
-                    // resetForm &&
                     <dialog id="my_modal_3" className="modal w-full ">
-                        <div className="modal-box w-[70%] max-w-none bg-white">
+                        <div className="modal-box md:w-[70%] w-full max-w-none bg-white">
 
                             <form method="dialog">
                                 {/* if there is a button in form, it will close the modal */}
@@ -163,9 +142,9 @@ export default function StepsCard() {
                             </form>
 
                             {/* content */}
-                            <div className='flex gap-0 w-full bg-white'>
-                                <div className='space-y-4 w-[50%]'>
-                                    <Image src={image2} alt='heart' placeholder='blur' className=' ' />
+                            <div className='flex md:flex-row flex-col gap-0 w-full bg-white'>
+                                <div className='space-y-4 xl:w-[50%] lg:w-[50%] md:w-[50%] sm:w-full w-full'>
+                                    <Image src={image2} alt='image' placeholder='blur' className=' ' />
                                     {/* text content under image */}
                                     <div className='space-y-2'>
                                         <h6 className='text-xl text-center font-semibold '>Hot Meals for hungry Families in Syria <br /> and Gaza</h6>
@@ -175,11 +154,11 @@ export default function StepsCard() {
                                     </div>
                                 </div>
                                 <div className='divider lg:divider-horizontal'></div>
-                                <div className='w-[50%]'>
+                                <div className='xl:w-[50%] lg:w-[50%] md:w-[50%] sm:w-full w-full'>
 
                                     <div>
                                         <DonationFormTwo
-                                            selectedStepCardAmount={selectedAmount}
+                                            selectedStepCardAmount={selectedOtherAmount}
                                             resetForm={resetForm}
                                             closeModal={closeModal} // to close the model 
                                         ></DonationFormTwo>    {/* donation form */}

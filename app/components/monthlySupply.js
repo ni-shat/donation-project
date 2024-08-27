@@ -12,9 +12,9 @@ export default function MonthlySupply() {
 
 
             <div className='xl:px-10 lg:px-10 md:px-2 sm:px-4 px-0 xl:py-20 lg:py-10 md:py-9 sm:py-8 py-6 2xl:w-[80%] xl:w-[90%] mx-auto'>
-                <div className='w-full flex gap-12 justify-between'>
+                <div className='w-full md:flex-row flex-col flex gap-12 justify-between'>
 
-                    <div className='flex flex-col gap-4 text-start font-semibold w-2/4'>
+                    <div className='flex flex-col gap-4 text-start font-semibold xl:w-[50%] lg:w-[50%] md:w-[50%] sm:w-full w-full px-2'>
                         <h3 className='text-4xl font-semibold text-red-950'>
                             A MONTH’S SUPPLY OF HOT MEALS = $56
                         </h3>
@@ -37,7 +37,7 @@ export default function MonthlySupply() {
                         </p>
                     </div>
 
-                    <div className='xl:w-[50%] lg:w-[50%] md:w-[50%] sm:w-[50%] w-[50%]'>
+                    <div className='xl:w-[50%] lg:w-[50%] md:w-[50%] sm:w-full w-full'>
                         <Image src={image7} alt='image' placeholder='blur' className='' />
                     </div>
 
@@ -46,8 +46,8 @@ export default function MonthlySupply() {
             </div>
 
 
-            <div className='w-2/5 mx-auto bg-white '>
-                <p className='text-xl xl:mb-8 xl:pt-14 xl:px-8'>How many months of hot meals can you provide?</p>
+            <div className='lg:w-2/5 md:w-[70%] w-[95%] mx-auto bg-white '>
+                <p className='text-xl xl:mb-8 xl:pt-14 xl:px-8 px-3 py-3'>How many months of hot meals can you provide?</p>
                 <StepsCard></StepsCard>
             </div>
 

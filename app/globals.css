@@ -4,12 +4,17 @@
 
 :root {
     --background-color: #ffffff;
-  }
-  
-  body {
-    background-color: var(--background-color);
-  }
+}
 
+body {
+    background-color: var(--background-color);
+}
+
+input:-webkit-autofill {
+    background-color: #f0f0f0 !important; /* Change to light gray */
+    -webkit-text-fill-color: #000000 !important; /* Keep the text black */
+    transition: background-color 5000s ease-in-out 0s;
+}
 
 .custom-placeholder::placeholder {
     font-size: 15px;
@@ -48,9 +53,11 @@
 .borderless-input {
     border: none;
     outline: none;
-    box-shadow: none; /* This is to remove any default focus shadow */
+    box-shadow: none;
+    /* This is to remove any default focus shadow */
 }
 
 .font-extra-extra-bold {
-    font-weight: 900; /* Adjust this value as needed */
+    font-weight: 900;
+    /* Adjust this value as needed */
 }

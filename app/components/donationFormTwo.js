@@ -247,7 +247,7 @@ export default function DonationFormTwo({ selectedStepCardAmount, resetForm, clo
         <div className='w-full h-full bg-white'>
             {
                 isFirstStepCompleted ||
-                <form onSubmit={handleSubmit(onSubmit)} className=" mx-auto px-2 rounded ">
+                <form onSubmit={handleSubmit(onSubmit)} className=" mx-auto md:px-2 px-0 rounded ">
                     <p className='text-xl font-semibold text-center mb-10 border-b pb-5 pt-1'>Secure donation</p>
                     <div className={`mb-4 ${warning ? 'shake' : ''}`} key={shakeKey}>
                         <ul tabIndex={0} className="  bg-white rounded-box  w-full shadow">
@@ -257,7 +257,7 @@ export default function DonationFormTwo({ selectedStepCardAmount, resetForm, clo
                                     <li key={option.id} className={`px-4 py-2  ${selectedOption === option.amount ? 'bg-blue-100 ' : ''} p-0 rounded border-b`}>
                                         <label className="flex items-center justify-between hover:cursor-pointer">
                                             <p className='font-semibold text-xl '>{`£${option.amount}`}</p>
-                                            <p className=""> {`- ${option.description}`}</p>
+                                            <p className="md:text-base text-xs"> {`- ${option.description}`}</p>
                                             <input
                                                 type="radio"
                                                 value={selectedOption ? option.amount : ''}

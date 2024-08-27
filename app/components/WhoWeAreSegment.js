@@ -5,13 +5,13 @@ import Image from 'next/image'
 export default function WhoWeAreSegment() {
     return (
         <div className='xl:px-14 lg:px-10 md:px-2 sm:px-4 px-0 xl:py-20 lg:py-10 md:py-9 sm:py-8 py-6 2xl:w-[80%] xl:w-[90%] mx-auto'>
-            <div className='w-full flex gap-12 justify-between'>
+            <div className='w-full md:flex-row flex-col flex gap-12 justify-between'>
 
-                <div className='xl:w-[50%] lg:w-[50%] md:w-[50%] sm:w-[50%] w-[50%]'>
+                <div className='xl:w-[50%] lg:w-[50%] md:w-[50%] sm:w-full w-full'>
                     <Image src={image6} alt='image' placeholder='blur' className='' />
                 </div>
 
-                <div className='flex flex-col gap-4 text-start font-semibold w-2/4'>
+                <div className='flex flex-col gap-4 text-start font-semibold xl:w-[50%] lg:w-[50%] md:w-[50%] sm:w-full w-full px-2'>
                     <h3 className='text-4xl font-semibold text-red-950'>
                         WHO WE ARE
                     </h3>
