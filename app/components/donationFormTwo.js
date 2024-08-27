@@ -2,11 +2,11 @@
 import React, { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form';
 import DonationFormBioDetails from './donationFormBioDetails';
-import { db } from '@/app/firebase';
-import { collection, addDoc } from 'firebase/firestore';
-import { createDonationData } from '@/services/api';
+import { useModal } from '../context/ModalContext';
 
 export default function DonationFormTwo({ selectedStepCardAmount, resetForm, closeModal }) {
+
+    const { openingModalFromOtherBtn } = useModal();
 
     const donationOptions = [
         {
@@ -41,7 +41,7 @@ export default function DonationFormTwo({ selectedStepCardAmount, resetForm, clo
     const [isSubscribed, setIsSubscribed] = useState(false);
     const [isAgreed, setIsAgreed] = useState(false);
     const [donationDetails, setDonationDetails] = useState(false);
-    const minimumDonation = 20.0;
+    const minimumDonation = 1.0;
 
     const { register, handleSubmit, setValue, setError, reset, formState: { errors } } = useForm();
 
@@ -60,7 +60,14 @@ export default function DonationFormTwo({ selectedStepCardAmount, resetForm, clo
     // }, [resetForm, setResetForm]);
 
     useEffect(() => {
-        // other amount na thakle null oitho te os na kne kobis
+        if (openingModalFromOtherBtn) {
+            setSelectedOption("20"); 
+        } else {
+            setSelectedOption(null); 
+        }
+    }, [openingModalFromOtherBtn]);
+
+    useEffect(() => {
         if (customAmount !== 'Other amount') {
             setSelectedOption(null)
         }
@@ -202,14 +209,10 @@ export default function DonationFormTwo({ selectedStepCardAmount, resetForm, clo
 
 
     const handleDonateButton = () => {
-        //console.log('in handle donate function', customAmount, "custom amount")
-        // isTooltipVisible ? setWarning(true) : setIsFirstStepCompleted(true)
         if (isTooltipVisible) {
             setWarning(true);
-            //console.log('warning')
             setShakeKey(prevKey => prevKey + 1);
             setIsFirstStepCompleted(false)
-            //console.log('in shaking if')
         }
     }
 
@@ -239,9 +242,7 @@ export default function DonationFormTwo({ selectedStepCardAmount, resetForm, clo
         setDonationDetails(data);
         setIsFirstStepCompleted(true);
     };
-    //console.log('selected option', selectedOption)
-    //console.log('custom amount here', customAmount)
-    //console.log('type of custom amount here', typeof customAmount)
+
 
     return (
         <div className='w-full h-full bg-white'>
@@ -280,9 +281,8 @@ export default function DonationFormTwo({ selectedStepCardAmount, resetForm, clo
                                     </li>
                                 )
                             }
-                            {/* <li >
-                                
-                            </li> */}
+
+
                             <li >
                                 {
                                     customAmount === 'Other amount' ?
@@ -320,22 +320,6 @@ export default function DonationFormTwo({ selectedStepCardAmount, resetForm, clo
 
                     </div>
 
-                    {/* <div className="mt-5">
-                        <label className="flex items-center gap-3">
-                            <input type="checkbox" defaultChecked={isDedicated} className="disabled w-4 h-4 border"
-                                onChange={(e) => setIsDedicated(e.target.checked)} />
-                            <span className="label-text">Dedicate this donation</span>
-                        </label>
-                        {
-                            isDedicated &&
-                            <input
-                                type="text"
-                                {...register('HonoreeName')}
-                                className={`input input-bordered w-full h-9 mt-2 border-2 focus:border-2 custom-placeholder bg-white `}
-                                placeholder='Honoree name'
-                            />
-                        }
-                    </div> */}
 
                     <div className="mt-5">
                         <label className="flex items-center gap-3">

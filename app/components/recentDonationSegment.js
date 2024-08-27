@@ -37,7 +37,7 @@ export default function RecentDonationSegment() {
         return () => unsubscribe();
     }, []);
 
-    console.log('checking donations :', donations)
+    // console.log('checking donations :', donations)
 
     return (
         <div className='w-full lg:mt-28 mt-14 flex gap-10 justify-between flex-col md:flex-row'>

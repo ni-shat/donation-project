@@ -1,10 +1,15 @@
 'use client';
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useModal } from '../context/ModalContext'; // Import the custom hook
 
 export default function DonateNowButton({ width, height, btnText, textSize, font, lgWidth }) {
-    const { openModal } = useModal();
-    
+    const { openModal, setopeningModalFromOtherBtn } = useModal();
+
+    useEffect(() => {
+        setopeningModalFromOtherBtn(true);
+        //console.log('i wanna know the value of other amount in useeffect', customAmount)
+    }, [])
+
     return (
 
         <button

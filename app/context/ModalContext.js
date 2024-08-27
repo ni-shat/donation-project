@@ -5,6 +5,7 @@ import React, { createContext, useContext, useState } from 'react';
 const ModalContext = createContext();
 
 export const ModalProvider = ({ children }) => {
+    const [openingModalFromOtherBtn, setopeningModalFromOtherBtn] = useState(null);
 
     const openModal = () => {
         console.log('in open modal func');
@@ -17,7 +18,7 @@ export const ModalProvider = ({ children }) => {
     };
 
     return (
-        <ModalContext.Provider value={{  openModal, closeModal }}>
+        <ModalContext.Provider value={{ openModal, closeModal, setopeningModalFromOtherBtn, openingModalFromOtherBtn}}>
             {children}
         </ModalContext.Provider>
     );

@@ -43,7 +43,6 @@ export default function DonationForm({ selectedStepCardAmount }) {
     const { register, handleSubmit, setValue, setError, formState: { errors } } = useForm();
 
     useEffect(() => {
-        // other amount na thakle null oitho te os na kne kobis
         if (customAmount !== 'Other amount') {
             setSelectedOption(null)
         }
