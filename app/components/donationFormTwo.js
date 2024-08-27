@@ -62,6 +62,7 @@ export default function DonationFormTwo({ selectedStepCardAmount, resetForm, clo
     useEffect(() => {
         if (openingModalFromOtherBtn) {
             setSelectedOption("20"); 
+            setValue('donation', '20');
         } else {
             setSelectedOption(null); 
         }
@@ -269,6 +270,7 @@ export default function DonationFormTwo({ selectedStepCardAmount, resetForm, clo
                                             <input
                                                 type="radio"
                                                 value={selectedOption ? option.amount : ''}
+                                                // value={selectedOption ? option.amount : ''}
                                                 {...register('donation')}
                                                 className={`radio `}
                                                 checked={selectedOption === option.amount ? true : false}  // Check the first option by default

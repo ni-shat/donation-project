@@ -119,12 +119,13 @@ const CheckoutForm_Card = ({ amount, setShowPayWithCard, setShowPayment, setIsFi
 
             // post total amount data in totalCollected collection
             try {
+                const amountForPostingToDb = amount/100;
                 const response = await fetch('https://charity-project-server.vercel.app/update-total-collected', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
                     },
-                    body: JSON.stringify({ amount }),
+                    body: JSON.stringify({ amountForPostingToDb }),
                 });
 
                 if (!response.ok) {
