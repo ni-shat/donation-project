@@ -32,7 +32,6 @@ export default function RecentDonations() {
                 console.error('Error fetching donations: ', error);
             }
         );
-
         // Clean up the listener on unmount
         return () => unsubscribe();
     }, []);

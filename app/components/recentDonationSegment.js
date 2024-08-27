@@ -1,5 +1,7 @@
 'use client';
 import React, { useEffect, useState } from 'react'
+import { collection, query, orderBy, limit, onSnapshot } from 'firebase/firestore';
+import { db } from '../firebase';
 import { formatDistanceToNow } from 'date-fns';
 import DonateNowButton from './donateNowButton';
 
@@ -10,57 +12,36 @@ export default function RecentDonationSegment() {
     const [error, setError] = useState(null);
 
     useEffect(() => {
-        // Fetch recent donations from the backend
-        const fetchDonations = async () => {
-            try {
-                const response = await fetch('https://charity-project-server.vercel.app/recent-donations');
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                const data = await response.json();
-                setDonations(data);
-            } catch (error) {
-                setError(error.message);
-            } 
-        };
+        const donationsRef = collection(db, 'donations');
 
-        fetchDonations();
+        const donationsQuery = query(
+            donationsRef,
+            orderBy('timestamp', 'desc'),
+            limit(10)
+        );
+
+        const unsubscribe = onSnapshot(
+            donationsQuery,
+            (snapshot) => {
+                const newDonations = snapshot.docs.map(doc => ({
+                    id: doc.id,
+                    ...doc.data()
+                }));
+                setDonations(newDonations);
+            },
+            (error) => {
+                setError('Error fetching donations: ', error);
+            }
+        );
+
+        return () => unsubscribe();
     }, []);
 
-    // const data = [
-    //     {
-    //         "name": "Mehd M.",
-    //         "id": 1,
-    //         "amount": "$18.85",
-    //         "location": "Paris, France",
-    //         "timeAgo": "2 minutes ago"
-    //     },
-    //     {
-    //         "name": "Jerren L.",
-    //         "id": 2,
-    //         "amount": "$14.74",
-    //         "location": "Hong Kong",
-    //         "timeAgo": "2 minutes ago"
-    //     },
-    //     {
-    //         "name": "Abdou S.",
-    //         "id": 3,
-    //         "amount": "$5.45",
-    //         "location": "Tudela, Spain",
-    //         "timeAgo": "2 minutes ago"
-    //     }
-    // ]
-
-    console.log('checking donations :',donations)
-      // Function to convert Firestore Timestamp to Date
-      const convertTimestampToDate = (timestamp) => {
-        return new Date(timestamp._seconds * 1000); // Convert seconds to milliseconds
-    };
-
+    console.log('checking donations :', donations)
 
     return (
-        <div className='w-full mt-28 flex gap-10 justify-between'>
-            <div className='flex flex-col gap-4 items-center  justify-center text-center font-semibold w-2/4'>
+        <div className='w-full mt-28 flex gap-10 justify-between flex-col md:flex-row'>
+            <div className='flex flex-col gap-4 items-center  justify-center text-center font-semibold md:w-2/4 w-full'>
                 <h3 className='text-3xl font-semibold'>
                     With No Food, No Water...
                 </h3>
@@ -73,7 +54,7 @@ export default function RecentDonationSegment() {
                 </p>
             </div>
 
-            <div className="card bg-white w-96 shadow-xl mr-14">
+            <div className="card bg-white md:w-96 w-full shadow-xl md:mr-14 mr-0">
                 <div className="card-body border rounded-2xl">
                     <h2 className="card-title mx-auto">Recent Donations</h2>
                     {/* recent donation list */}
@@ -85,16 +66,13 @@ export default function RecentDonationSegment() {
                                     <span className='w-fit  text-primary'>£{d.donation}</span>
                                 </div>
                                 <p className='font-normal'>{d.location}</p>
-                                {/* <p className='text-gray-400'>{d.timestamp}</p> */}
                                 <p className='text-gray-400'>
-                                        {formatDistanceToNow(convertTimestampToDate(d.timestamp), { addSuffix: true })}
+                                    {formatDistanceToNow(d.timestamp.toDate(), { addSuffix: true })}
                                 </p>
-                                    {/* <div>Time Ago: {formatDistanceToNow(d.timestamp.toDate(), { addSuffix: true })}</div> */}
                             </div>)
                         }
                     </div>
                     <div className="card-actions mt-5">
-                        {/* <button className="btn btn-primary w-full">Donate</button> */}
                         <DonateNowButton width={"w-56"} height={"h-[3rem]"} btnText={"Donate"}></DonateNowButton>
                     </div>
                 </div>
