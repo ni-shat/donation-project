@@ -226,7 +226,7 @@ export default function DonationFormTwo({ selectedStepCardAmount, resetForm, clo
     const onSubmit = async (data) => {
         const amount = parseFloat(data.donation);
         delete data.otherAmount;
-        console.log("Amount in donationFormTwo: ", amount, data )
+        console.log("Amount in donationFormTwo: ", amount, data)
 
         if (amount < minimumDonation) {
             setError('otherAmount', true);
@@ -256,9 +256,15 @@ export default function DonationFormTwo({ selectedStepCardAmount, resetForm, clo
                                 donationOptions.map(option =>
                                     <li key={option.id} className={`px-4 py-2  ${selectedOption === option.amount ? 'bg-blue-100 ' : ''} p-0 rounded border-b`}>
                                         <label className="flex items-center justify-between hover:cursor-pointer">
-                                            <p className='font-semibold text-xl '>{`£${option.amount}`}</p>
-                                            <p>- </p>
-                                            <p className="md:text-base text-xs"> {`${option.description}`}</p>
+                                            <div className='flex items-center justify-between gap-1 '>
+                                                <div className=' flex-grow md:w-fit w-[17%]'>
+                                                    <p className='font-semibold text-xl '>{`£${option.amount}`}</p>
+                                                </div>
+                                                <div className='flex items-center gap-1'>
+                                                    <p>- </p>
+                                                    <p className="md:text-base text-[11px]"> {`${option.description}`}</p>
+                                                </div>
+                                            </div>
                                             <input
                                                 type="radio"
                                                 value={selectedOption ? option.amount : ''}
