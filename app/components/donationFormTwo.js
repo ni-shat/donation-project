@@ -320,7 +320,7 @@ export default function DonationFormTwo({ selectedStepCardAmount, resetForm, clo
 
                     </div>
 
-                    <div className="mt-5">
+                    {/* <div className="mt-5">
                         <label className="flex items-center gap-3">
                             <input type="checkbox" defaultChecked={isDedicated} className="disabled w-4 h-4 border"
                                 onChange={(e) => setIsDedicated(e.target.checked)} />
@@ -335,11 +335,42 @@ export default function DonationFormTwo({ selectedStepCardAmount, resetForm, clo
                                 placeholder='Honoree name'
                             />
                         }
+                    </div> */}
+
+                    <div className="mt-5">
+                        <label className="flex items-center gap-3">
+                            <input
+                                type="checkbox"
+                                defaultChecked={isDedicated}
+                                className="disabled w-4 h-4 border appearance-none checked:bg-blue-500 checked:border-transparent focus:outline-none focus:ring-1 focus:ring-blue-500 relative"
+                                onChange={(e) => setIsDedicated(e.target.checked)}
+                            />
+                            <span className="label-text">Dedicate this donation</span>
+                            {/* Adding checkmark when checkbox is checked */}
+                            <style jsx>{`
+                                input:checked::after {
+                                    content: "✔";
+                                    font-size: 0.75rem;
+                                    color: white;
+                                    position: absolute;
+                                    top: 0.125rem;
+                                    left: 0.125rem;
+                                    width: 1rem;
+                                    height: 1rem;
+                                    text-align: center;
+                                }
+                            `}</style>
+                        </label>
+                        {isDedicated && (
+                            <input
+                                type="text"
+                                {...register('HonoreeName')}
+                                className="input input-bordered w-full h-9 mt-2 border-2 focus:border-2 custom-placeholder bg-white"
+                                placeholder="Honoree name"
+                            />
+                        )}
                     </div>
 
-                    {/* <div className='mt-5 text-sm'>
-                        <p className='underline'>Add comment</p>
-                    </div> */}
 
 
                     <button className="w-full p-2 bg-blue-500 text-white rounded mt-6"

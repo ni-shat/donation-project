@@ -8,7 +8,7 @@ export default function MonthlySupply() {
     
       
     return (
-        <div className=' border-white border-t-2 pb-32 bg-slate-300 h-fit'>
+        <div className=' border-white border-t-2 pb-32 bg-slate-300 h-fit overflow-x-hidden'>
 
 
             <div className='xl:px-10 lg:px-10 md:px-2 sm:px-4 px-0 xl:py-20 lg:py-10 md:py-9 sm:py-8 py-6 2xl:w-[80%] xl:w-[90%] mx-auto'>
