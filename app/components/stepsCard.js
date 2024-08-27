@@ -71,11 +71,6 @@ export default function StepsCard() {
                                         </div>
                                     </div>
 
-                                    {/* amount
-                                    <p className={`absolute left-1/2 transform -translate-x-1/2 top-10 `}>
-                                        {d.amount}$
-                                    </p> */}
-
                                     {/* tooltip */}
                                     {selectedAmount === d.amount && (
                                         <div
