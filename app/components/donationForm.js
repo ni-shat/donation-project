@@ -12,17 +12,23 @@ export default function DonationForm({ selectedStepCardAmount, resetForm, closeM
         {
             id: 1,
             type: 'Give once',
-            amount: "20",
+            amount: "5",
             description: "Feed 1 needy person for a month (Syria)"
         },
         {
             id: 2,
             type: 'Give once',
-            amount: "50",
+            amount: "20",
             description: "Feed 3 needy people for a month (Syria)"
         },
         {
             id: 3,
+            type: 'Give once',
+            amount: "50",
+            description: "Feed 7 needy people for a month (Syria)"
+        },
+        {
+            id: 4,
             type: 'Give once',
             amount: "100",
             description: "Feed 7 needy people for a month (Syria)"
@@ -61,8 +67,8 @@ export default function DonationForm({ selectedStepCardAmount, resetForm, closeM
 
     useEffect(() => {
         if (openingModalFromOtherBtn) {
-            setSelectedOption("20"); 
-            setValue('donation', '20');
+            setSelectedOption("5"); 
+            setValue('donation', '5');
         } else {
             setSelectedOption(null); 
         }
@@ -103,20 +109,15 @@ export default function DonationForm({ selectedStepCardAmount, resetForm, closeM
     // };
     const handleOtherAmountClicked = () => {
         setIsFocused(true);
-        // setSelectedOption(null)
         if (selectedOption !== null) {
-            //console.log(selectedOption)
-            // setCustomAmount('$' + selectedOption);
+            
             setCustomAmount(selectedOption);
-            // setCustomAmount(`$${selectedOption}`);
             setValue('otherAmount', selectedOption);
         }
         setSelectedOption(null);
-        //console.log('selected option', selectedOption)
     };
 
     const handleOtherAmountBlur = () => {
-        //console.log("in handler blur")
         const amount = parseFloat(customAmount.replace('$', ''), 10);
         if (amount < minimumDonation) {
             setIsTooltipVisible(true);
@@ -125,12 +126,6 @@ export default function DonationForm({ selectedStepCardAmount, resetForm, closeM
         }
     };
 
-    // const handleOtherAmountKeyDown = (e) => {
-    //     const cursorPosition = e.target.selectionStart;
-    //     if (cursorPosition <= 0 && (e.key === 'Backspace' || e.key === 'Delete' || e.key === 'ArrowLeft')) {
-    //         e.preventDefault();
-    //     }
-    // };
     const handleOtherAmountKeyDown = (e) => {
         // Get the current input value and cursor position
         const inputValue = e.target.value;
@@ -150,29 +145,6 @@ export default function DonationForm({ selectedStepCardAmount, resetForm, closeM
         }
     };
 
-
-    // const handleOtherAmountChange = (e) => {
-    //     setIsTooltipVisible(false)
-    //     //console.log('im there', e.target.value)
-
-    //     const validNumberPattern = /^[0-9]*\.?[0-9]*$/;
-
-    //     let value = e.target.value;
-    //     if (!value.startsWith('$')) {
-    //         value = '$' + value;
-    //     }
-    //     value = '$' + value.slice(1).replace(/^0+/, '');
-
-    //     if (value === '$') {
-    //         value = '$' + '0';
-    //     }
-    //     if (validNumberPattern.test(value.slice(1))) {
-    //         setCustomAmount(value);
-    //         setValue('donation', value);
-    //         setValue('otherAmount', value);
-    //     }
-    //     // setCustomAmount(value);
-    // };
 
     const handleOtherAmountChange = (e) => {
         setIsTooltipVisible(false);
@@ -205,10 +177,6 @@ export default function DonationForm({ selectedStepCardAmount, resetForm, closeM
     };
 
 
-
-
-
-
     const handleDonateButton = () => {
         if (isTooltipVisible) {
             setWarning(true);
@@ -218,15 +186,6 @@ export default function DonationForm({ selectedStepCardAmount, resetForm, closeM
     }
 
 
-
-    // const handleClickedBack = () => {
-    //     setIsFirstStepCompleted(false)
-    //     // if (customAmount !== 'Other amount') {
-    //     //     setSelectedOption(null);
-    //     // }
-    // }
-
-
     const onSubmit = async (data) => {
         const amount = parseFloat(data.donation);
         delete data.otherAmount;
@@ -234,12 +193,8 @@ export default function DonationForm({ selectedStepCardAmount, resetForm, closeM
 
         if (amount < minimumDonation) {
             setError('otherAmount', true);
-            //console.log('in minimum if')
-
             return;
         }
-        //console.log(data, amount);
-        //console.log('custom amount', customAmount);
         setDonationDetails(data);
         setIsFirstStepCompleted(true);
     };
@@ -270,7 +225,6 @@ export default function DonationForm({ selectedStepCardAmount, resetForm, closeM
                                             <input
                                                 type="radio"
                                                 value={selectedOption ? option.amount : ''}
-                                                // value={selectedOption ? option.amount : ''}
                                                 {...register('donation')}
                                                 className={`radio `}
                                                 checked={selectedOption === option.amount ? true : false}  // Check the first option by default
@@ -288,9 +242,9 @@ export default function DonationForm({ selectedStepCardAmount, resetForm, closeM
                             <li >
                                 {
                                     customAmount === 'Other amount' ?
-                                        <p onClick={handleOtherAmountClicked} className='hover:cursor-pointer px-4 py-2'>Other amount</p> :
+                                        <p onClick={handleOtherAmountClicked} className='hover:cursor-pointer px-4 py-2 mt-2 border border-black bg-gray-100'>Other amount</p> :
 
-                                        <div className={`w-full  ${typeof DefaultValue !== 'string' && 'bg-blue-100'}
+                                        <div className={`w-full mt-2 ${typeof DefaultValue !== 'string' && 'bg-blue-100'}
                                         ${isFocused ? 'border-2 border-blue-600 cursor-pointer bg-blue-100' : 'border-0'}
                                         ${customAmount !== 'Other amount' ? 'border-2 border-blue-600 cursor-pointer bg-blue-100' : 'border-0'} flex`}>
                                             <p className='pl-4 py-2'>£</p>
@@ -299,7 +253,6 @@ export default function DonationForm({ selectedStepCardAmount, resetForm, closeM
                                                 className="borderless-input bg-blue-100 w-full pr-2 py-2"
                                                 {...register('otherAmount', { required: true })}
 
-                                                // defaultValue={typeof DefaultValue === 'string' ? DefaultValue : ''}
 
                                                 value={customAmount}
                                                 onClick={handleOtherAmountClicked} // when user will click Only amount
