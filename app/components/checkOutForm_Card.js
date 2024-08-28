@@ -119,7 +119,7 @@ const CheckoutForm_Card = ({ amount, setShowPayWithCard, setShowPayment, setIsFi
 
             // post total amount data in totalCollected collection
             try {
-                const amountForPostingToDb = amount/100;
+                const amountForPostingToDb = amount / 100;
                 const response = await fetch('https://charity-project-server.vercel.app/update-total-collected', {
                     method: 'POST',
                     headers: {
@@ -136,7 +136,7 @@ const CheckoutForm_Card = ({ amount, setShowPayWithCard, setShowPayment, setIsFi
                 console.log('Response from server:', data.message);
             } catch (error) {
                 console.error('Error posting total collected amount:', error);
-            }  
+            }
             // end posting data in totalCollected collection
         }
         else {
@@ -152,9 +152,6 @@ const CheckoutForm_Card = ({ amount, setShowPayWithCard, setShowPayment, setIsFi
 
     return (
         <div className=' h-full'>
-            {/* <div className='hover:bg-gray-100 w-fit p-2 hover:cursor-pointer rounded-full'>
-                <FaArrowLeft onClick={handleClickedBack} />
-            </div> */}
 
             {
                 !success &&
@@ -183,7 +180,14 @@ const CheckoutForm_Card = ({ amount, setShowPayWithCard, setShowPayment, setIsFi
                             <label className='px-1'>CVC</label>
                             <CardCvcElement className='p-2 py-3 mt-1 border border-gray-300 rounded' />
                         </div>
-                        <button type="submit" disabled={!stripe || processing} className='px-2 py-3 bg-blue-600 text-white rounded font-semibold hover:cursor-pointer hover:bg-opacity-50'>
+                        <button type="submit" disabled={!stripe || processing}
+                            className={`px-2 py-3 text-white rounded font-semibold 
+                                ${processing
+                                    ? 'bg-gray-400 cursor-not-allowed' 
+                                    : 'bg-blue-600 hover:cursor-pointer hover:bg-opacity-50'
+                                }
+                                `}
+                        >
                             {processing ? 'Processing...' : `Donate $${amount / 100}`}
                         </button>
                     </form>
