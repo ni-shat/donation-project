@@ -35,7 +35,6 @@ export default function DonationForm({ selectedStepCardAmount, resetForm, closeM
         }
     ];
     const [selectedOption, setSelectedOption] = useState(null);
-    const [selectedOtherAmount, setSelectedOtherAmount] = useState(false);
     const [DefaultValue, setDefaultValue] = useState('Other ');
     const [isFocused, setIsFocused] = useState(false);
     const [customAmount, setCustomAmount] = useState('Other amount');
@@ -44,8 +43,6 @@ export default function DonationForm({ selectedStepCardAmount, resetForm, closeM
     const [warning, setWarning] = useState(false);
     const [isFirstStepCompleted, setIsFirstStepCompleted] = useState(false);
     const [shakeKey, setShakeKey] = useState(0); // Key to force re-render
-    const [isSubscribed, setIsSubscribed] = useState(false);
-    const [isAgreed, setIsAgreed] = useState(false);
     const [donationDetails, setDonationDetails] = useState(false);
     const minimumDonation = 1.0;
 
@@ -78,10 +75,7 @@ export default function DonationForm({ selectedStepCardAmount, resetForm, closeM
         if (customAmount !== 'Other amount') {
             setSelectedOption(null)
         }
-        //console.log('i wanna know the value of other amount in useeffect', customAmount)
     }, [customAmount])
-
-    //console.log('i wanna know the value of other amount under useeffect', customAmount)
 
     useEffect(() => {
         setCustomAmount(selectedStepCardAmount || 'Other amount');
@@ -104,9 +98,7 @@ export default function DonationForm({ selectedStepCardAmount, resetForm, closeM
     const handleOptionClicked = () => {
         setCustomAmount('Other amount');
     };
-    // const handleOtherAmount = (id) => {
-    //     setSelectedOtherAmount(id);
-    // };
+    
     const handleOtherAmountClicked = () => {
         setIsFocused(true);
         if (selectedOption !== null) {
@@ -252,8 +244,6 @@ export default function DonationForm({ selectedStepCardAmount, resetForm, closeM
                                                 type="text"
                                                 className="borderless-input bg-blue-100 w-full pr-2 py-2"
                                                 {...register('otherAmount', { required: true })}
-
-
                                                 value={customAmount}
                                                 onClick={handleOtherAmountClicked} // when user will click Only amount
                                                 onChange={handleOtherAmountChange}
