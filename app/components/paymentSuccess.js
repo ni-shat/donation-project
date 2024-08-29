@@ -30,7 +30,7 @@ export default function PaymentSuccess({ amount, handleClickedBack, transactionI
                 </div>
 
                 <div className='mt-4 flex justify-between gap-2'>
-                    <button onClick={handleClickedBack} className='px-4 py-2 w-48 bg-blue-500 text-white rounded font-semibold hover:cursor-pointer hover:bg-opacity-50'>
+                    <button onClick={handleClickedBack} className='px-4 py-2 w-48 bg-[#387084] text-white rounded font-semibold hover:cursor-pointer hover:bg-opacity-50'>
                         Donate Again
                     </button>
                     <button onClick={closeModal} className='px-4 py-2 w-48 bg-gray-600 text-white rounded font-semibold hover:cursor-pointer hover:bg-opacity-50'>

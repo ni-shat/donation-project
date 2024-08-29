@@ -184,7 +184,7 @@ const CheckoutForm_Card = ({ amount, setShowPayWithCard, setShowPayment, setIsFi
                             className={`px-2 py-3 text-white rounded font-semibold 
                                 ${processing
                                     ? 'bg-gray-400 cursor-not-allowed' 
-                                    : 'bg-blue-600 hover:cursor-pointer hover:bg-opacity-50'
+                                    : 'bg-[#387084] hover:cursor-pointer hover:bg-opacity-50'
                                 }
                                 `}
                         >

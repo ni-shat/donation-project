@@ -121,7 +121,7 @@ export default function DonationFormBioDetails({ setIsFirstStepCompleted, donati
 
 
                         <button type="submit"
-                            className="w-full px-3 py-2 bg-blue-500 te border-gray-300 shadow-md-rounded text-white rounded mt-6"
+                            className="w-full px-3 py-2 bg-[#387084] te border-gray-300 shadow-md-rounded text-white rounded mt-6"
                         >Donate</button>
 
 

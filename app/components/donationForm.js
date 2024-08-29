@@ -237,8 +237,8 @@ export default function DonationForm({ selectedStepCardAmount, resetForm, closeM
                                         <p onClick={handleOtherAmountClicked} className='hover:cursor-pointer px-4 py-2 mt-2 border border-black bg-gray-100'>Other amount</p> :
 
                                         <div className={`w-full mt-2 ${typeof DefaultValue !== 'string' && 'bg-blue-100'}
-                                        ${isFocused ? 'border-2 border-blue-600 cursor-pointer bg-blue-100' : 'border-0'}
-                                        ${customAmount !== 'Other amount' ? 'border-2 border-blue-600 cursor-pointer bg-blue-100' : 'border-0'} flex`}>
+                                        ${isFocused ? 'border-2 border-[#387084] cursor-pointer bg-blue-100' : 'border-0'}
+                                        ${customAmount !== 'Other amount' ? 'border-2 border-[#387084] cursor-pointer bg-blue-100' : 'border-0'} flex`}>
                                             <p className='pl-4 py-2'>£</p>
                                             <input
                                                 type="text"
@@ -271,7 +271,7 @@ export default function DonationForm({ selectedStepCardAmount, resetForm, closeM
                             <input
                                 type="checkbox"
                                 defaultChecked={isDedicated}
-                                className="disabled w-[14px] h-[14px] border appearance-none checked:bg-blue-500 checked:border-transparent focus:outline-none focus:ring-1 focus:ring-blue-500 relative"
+                                className="disabled w-[14px] h-[14px] border appearance-none checked:bg-[#387084] checked:border-transparent focus:outline-none focus:ring-1 focus:ring-[#387084] relative"
                                 onChange={(e) => setIsDedicated(e.target.checked)}
                             />
                             <span className="label-text">Dedicate this donation</span>
@@ -302,7 +302,7 @@ export default function DonationForm({ selectedStepCardAmount, resetForm, closeM
 
 
 
-                    <button className="w-full p-2 bg-blue-500 text-white rounded mt-6"
+                    <button className="w-full p-2 bg-[#387084] text-white rounded mt-6"
                         // onClick={isTooltipVisible ? setWarning(true) : setIsFirstStepCompleted(true)}
                         onClick={handleDonateButton}
                     >Donate</button>
