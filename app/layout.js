@@ -7,7 +7,7 @@ const poppins = Poppins({
 });
 
 export const metadata = {
-  title: "Spotlight",
+  title: "One Path project",
   description: "A user-friendly donation platform",
 };
 
