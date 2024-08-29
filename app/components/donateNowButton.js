@@ -7,13 +7,12 @@ export default function DonateNowButton({ width, height, btnText, textSize, font
 
     useEffect(() => {
         setopeningModalFromOtherBtn(true);
-        //console.log('i wanna know the value of other amount in useeffect', customAmount)
     }, [])
 
     return (
 
         <button
-            className={`bg-primary text-white ${textSize} ${font} mx-auto 
+            className={`bg-[#387084] text-white ${textSize} ${font} mx-auto 
             ${width} 
             ${height} rounded-sm mt-1.5 hover:bg-opacity-50`}
             onClick={openModal} // Use the context function

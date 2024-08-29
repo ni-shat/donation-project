@@ -1,7 +1,7 @@
 import React from 'react'
-import image3 from '@/public/images/image3.jpg'
-import image4 from '@/public/images/image4.jpg'
-import image5 from '@/public/images/image5.jpg'
+import image3 from '@/public/images/AhmedSearch.jpg'
+import image4 from '@/public/images/echoes_of_resilience.jpg'
+import image5 from '@/public/images/ali_childf.jpg'
 import Image from 'next/image'
 import DonateNowButton from './donateNowButton'
 
@@ -21,27 +21,25 @@ export default function ThirdSegment() {
 
                 <div className='flex flex-col gap-4 text-start font-semibold xl:w-[50%] lg:w-[50%] md:w-[50%] sm:w-full w-full'>
                     <h3 className='text-4xl font-semibold'>
-                        1) Push Your Dua Forward With Charity
+                        1) Echoes Amidst Ruins: Ahmad's Search in Gaza
                     </h3>
 
                     <p className='text-xl font-normal'>
-                        Have you ever found yourself silently praying for your most heartfelt Dua to be answered?
+                        Ahmad, fourteen, wandered through the shattered streets of Gaza City, scavenging remnants of his past.
                     </p>
                     <p className='text-xl font-normal'>
-                        Acts of kindness can hold the key to realizing One&apos;s Dua&apos;s potential.
+                        Among the debris of once-familiar buildings, he sought fragments a photo, a toy-relics of a life now scattered by conflict.
                     </p>
                     <p className='text-xl font-normal'>
-                        Envision that by extending a helping hand, you could be just one charitable act away from seeing your most cherished dreams fulfilled.
+                        Each discovery, a poignant link to memories of laughter and dreams now buried beneath rubble. De- spite danger, Ahmad persisted, a symbol of resilience amidst devastation.
                     </p>
-                    <p className='text-xl font-normal'>
-                        Picture the smiles on the faces of needy families, and the warmth in the hearts of children who benefit from your charity.
-                    </p>
+
                     <div>
                         {/* <button className="px-6 py-4 bg-primary text-white text-xl font-semibold mx-auto w-full h-auto rounded-sm mt-2">CLICK HERE TO GIVE GENEROUSLY TODAY!</button> */}
                         <DonateNowButton
                             width={"w-full"} lgWidth={"w-56"}
                             height={"h-[65px]"}
-                            btnText={"CLICK HERE TO GIVE GENEROUSLY TODAY!"}
+                            btnText={"Help Restore Hope!"}
                             textSize={"text-xl"}
                             font={"font-semibold"}
                         ></DonateNowButton>
@@ -58,26 +56,24 @@ export default function ThirdSegment() {
 
                 <div className='flex flex-col gap-4 text-start font-semibold xl:w-[50%] lg:w-[50%] md:w-[50%] sm:w-full w-full'>
                     <h3 className='text-4xl font-semibold'>
-                        2) Bridge of Hope
+                        2) Aya al-Masri: Echoes of Resilience
                     </h3>
 
                     <p className='text-xl font-normal'>
-                        Have you ever found yourself silently praying for your most heartfelt Dua to be answered?
+                        In the twilight of her years, Aya al-Masri sat by the window of her modest home in Gaza, her weathered hands clasped in her lap. Through the glass, she could see the fa- miliar skyline, scarred by decades of conflict. Memories flooded her mind, each etched with the pain and resilience of her people.
                     </p>
                     <p className='text-xl font-normal'>
-                        Acts of kindness can hold the key to realizing One&apos;s Dua&apos;s potential.
+                        She remembered the joy of her youth, when laughter echoed through bustling markets and children played freely in the streets. Yet, those memories were overshadowed by the relentless waves of violence that swept through her homeland. She had seen homes crumble, lives shattered, and dreams reduced to rubble.
                     </p>
                     <p className='text-xl font-normal'>
-                        Envision that by extending a helping hand, you could be just one charitable act away from seeing your most cherished dreams fulfilled.
+                        Aya al-Masri, in her twilight, remained a beacon of hope and resilience, her spirit unbroken despite the trials that had defined her life. And as she closed her eyes, she prayed for a future where peace would finally reign over the land she had called home for so long.
                     </p>
-                    <p className='text-xl font-normal'>
-                        Picture the smiles on the faces of needy families, and the warmth in the hearts of children who benefit from your charity.
-                    </p>
+
                     <div>
                         <DonateNowButton
                             width={"w-full"} lgWidth={"w-56"}
                             height={"h-[85px]"}
-                            btnText={"YES, I WANT TO ECHO THE ESSENCE OF THIS HADITH ON THE LESS-PRIVILEGED"}
+                            btnText={"YES, I WANT TO BE A BEACON OF HOPE FOR GAZA’S RESILIENT SOULS"}
                             textSize={"text-xl"}
                             font={"font-semibold"}
                         ></DonateNowButton>
@@ -94,26 +90,27 @@ export default function ThirdSegment() {
 
                 <div className='flex flex-col gap-4 text-start font-semibold xl:w-[50%] lg:w-[50%] md:w-[50%] sm:w-full w-full'>
                     <h3 className='text-4xl font-semibold'>
-                        3) Establishing a Legacy of Giving
+                        3) Ali's Courageous Path:
+                        A Child's Journey Through War
                     </h3>
 
                     <p className='text-xl font-normal'>
-                        Your kind act today goes beyond the moment, making a lasting legacy of giving that keeps bringing hope to people in need.
+                        Ali, an eleven-year-old boy in Gaza, was injured when bombs hit his neighborhood. The explosion left him with wounds that hurt deeply, both physically and emotionally. In the hospital, sur- rounded by white walls and worried faces of family, Ali thought of his friends and the games they used to play.
                     </p>
                     <p className='text-xl font-normal'>
-                        As you help feed them, you&apos;re doing more than filling stomachs; You&apos;re engaging in a tradition of helping out that will inspire others and keep going for a long time.
+                        His days were filled with surgeries and painful treatments, but Ali never lost his courage. He found comfort in the kindness of strangers—doctors, nurses, and volunteers who brought him toys and stories. They helped him believe in a future beyond the pain.
                     </p>
                     <p className='text-xl font-normal'>
-                        Start a journey of kindness with Spotlight Human
+                        Slowly, Ali regained his strength. He dreamed of returning to school, playing soccer with his friends again, and living in a place without fear. His journey showed how children like him can be strong in tough times, holding onto hope even when everything seems hard.
                     </p>
                     <p className='text-xl font-normal'>
-                        Create a legacy filled with care and charity, just like the saying goes, &quot;The best of you are those who feed others&quot; - Musnad Ahmad 23926.
+                        As Ali looked forward, he wished for a world where no child would suffer like he did. He hoped for peace, where laughter could drown out the echoes of bombs, and dreams could come true without fear.
                     </p>
                     <div>
                         <DonateNowButton
                             width={"w-full"} lgWidth={"w-56"}
                             height={"h-[65px]"}
-                            btnText={"YES, I WANT TO ESTABLISH THE LEGACY OF GIVING"}
+                            btnText={"Help Restore Childhood Joy"}
                             textSize={"text-xl"}
                             font={"font-semibold"}
                         ></DonateNowButton>

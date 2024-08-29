@@ -1,6 +1,8 @@
 import Image from 'next/image'
 import React from 'react'
-import image7 from '@/public/images/image7.png'
+import image7 from '@/public/images/monthlySupply_pic1.jpg'
+import image8 from '@/public/images/BD _flood.jpg'
+import image9 from '@/public/images/BD_flood1.jpg'
 import StepsCard from './stepsCard'
 
 export default function MonthlySupply() {
@@ -12,7 +14,7 @@ export default function MonthlySupply() {
             <div className='xl:px-10 lg:px-10 md:px-2 sm:px-4 px-0 xl:py-20 lg:py-10 md:py-9 sm:py-8 py-6 2xl:w-[80%] xl:w-[90%] mx-auto'>
                 <div className='w-full md:flex-row flex-col flex gap-12 justify-between'>
 
-                    <div className='flex flex-col gap-4 text-start font-semibold xl:w-[50%] lg:w-[50%] md:w-[50%] sm:w-full w-full px-2'>
+                    {/* <div className='flex flex-col gap-4 text-start font-semibold xl:w-[50%] lg:w-[50%] md:w-[50%] sm:w-full w-full px-2'>
                         <h3 className='text-4xl font-semibold text-red-950'>
                             A MONTH’S SUPPLY OF HOT MEALS = $56
                         </h3>
@@ -33,10 +35,16 @@ export default function MonthlySupply() {
                         <p className='text-xl font-normal'>
                             Invest in your Hereafter. Donate generously.
                         </p>
-                    </div>
+                    </div> */}
 
                     <div className='xl:w-[50%] lg:w-[50%] md:w-[50%] sm:w-full w-full'>
-                        <Image src={image7} alt='image' placeholder='blur' className='' />
+                        <Image src={image7} alt='image' placeholder='blur' className='w-full h-full object-cover' />
+                    </div>
+                    <div className='xl:w-[50%] lg:w-[50%] md:w-[50%] sm:w-full w-full'>
+                        <Image src={image8} alt='image' placeholder='blur' className='w-full h-full object-cover' />
+                    </div>
+                    <div className='xl:w-[50%] lg:w-[50%] md:w-[50%] sm:w-full w-full'>
+                        <Image src={image9} alt='image' placeholder='blur' className='w-full h-full object-cover' />
                     </div>
 
 

@@ -2,7 +2,7 @@
 import Image from 'next/image';
 import React, { useState } from 'react'
 import heart from '@/public/images/heart.png'
-import image2 from '@/public/images/image2.jpg'
+import image2 from '@/public/images/stepsCard_pic.jpg'
 import DonationForm from './donationForm';
 import { useModal } from '../context/ModalContext';
 
@@ -131,12 +131,11 @@ export default function StepsCard() {
                             {/* content */}
                             <div className='flex md:flex-row flex-col-reverse gap-0 w-full bg-white md:mt-0 mt-2'>
                                 <div className='space-y-4 xl:w-[50%] lg:w-[50%] md:w-[50%] sm:w-[90%] w-[90%] mx-auto'>
-                                    <Image src={image2} alt='image' placeholder='blur' className=' ' />
+                                    <Image src={image2} alt='image' placeholder='blur' className='w-full h-[60%] object-cover' />
                                     {/* text content under image */}
                                     <div className='space-y-2'>
-                                        <h6 className='text-xl text-center font-semibold '>Hot Meals for hungry Families in Syria <br /> and Gaza</h6>
-                                        <p>In Syria and Gaza, countless families are battling hunger and poverty. You can provide
-                                            hot, nutritious meals to those in dire need. Each contribution brings us closer to alleviating the hardships of these families. Let&apos;s unite to feed lives and nourish hope.
+                                        <h6 className='text-xl text-center font-semibold '>Hot Meals for Families Facing Crisis <br /> and Conflict </h6>
+                                        <p>In Bangladesh and Gaza, families are facing severe hardships due to floods and ongoing conflict. You can help by providing hot, nutritious meals to those in urgent need. Each donation brings us closer to easing their struggles. Join us in offering vital support and spreading hope.
                                         </p>
                                     </div>
                                 </div>

@@ -48,9 +48,29 @@ export default function Progress() {
                  2xl:text-3xl xl:text-3xl lg:text-xl md:text-xl sm:text-xl text-xl
                 font-light'> of £{goalAmount}</span>
             </p>
-            <progress className="progress progress-primary w-full 
+            {/* <progress className="progress progress-primary w-full 
             2xl:h-6 xl:h-6 lg:h-4 md:h-4 sm:h-3 h-3
-            " value={progressValue} max="100"></progress>
+            " value={progressValue} max="100"></progress> */}
+
+            <style jsx>{`
+                .progress-primary {
+                    background-color: #e5e7eb; /* Background color of the progress bar */
+                }
+                .progress-primary::-webkit-progress-value {
+                    background-color: #387084; /* Change the fill color for WebKit browsers */
+                }
+                .progress-primary::-moz-progress-bar {
+                    background-color: #387084; /* Change the fill color for Firefox */
+                }
+                `}</style>
+
+            <progress
+                className="progress progress-primary w-full 
+            2xl:h-6 xl:h-6 lg:h-4 md:h-4 sm:h-3 h-3"
+                value={progressValue}
+                max="100"
+            ></progress>
+
 
             <DonateNowButton
                 width={"w-56"} lgWidth={"w-56"}
