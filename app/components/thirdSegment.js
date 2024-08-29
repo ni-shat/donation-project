@@ -21,7 +21,7 @@ export default function ThirdSegment() {
 
                 <div className='flex flex-col gap-4 text-start font-semibold xl:w-[50%] lg:w-[50%] md:w-[50%] sm:w-full w-full'>
                     <h3 className='text-4xl font-semibold'>
-                        1) Echoes Amidst Ruins: Ahmad's Search in Gaza
+                        1) Echoes Amidst Ruins: Ahmad&apos;s Search in Gaza
                     </h3>
 
                     <p className='text-xl font-normal'>
@@ -90,8 +90,8 @@ export default function ThirdSegment() {
 
                 <div className='flex flex-col gap-4 text-start font-semibold xl:w-[50%] lg:w-[50%] md:w-[50%] sm:w-full w-full'>
                     <h3 className='text-4xl font-semibold'>
-                        3) Ali's Courageous Path:
-                        A Child's Journey Through War
+                        3) Ali&apos;s Courageous Path:
+                        A Child&apos;s Journey Through War
                     </h3>
 
                     <p className='text-xl font-normal'>

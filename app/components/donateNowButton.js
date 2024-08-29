@@ -7,7 +7,7 @@ export default function DonateNowButton({ width, height, btnText, textSize, font
 
     useEffect(() => {
         setopeningModalFromOtherBtn(true);
-    }, [])
+    }, [setopeningModalFromOtherBtn])
 
     return (
 
