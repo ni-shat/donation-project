@@ -68,7 +68,7 @@ export default function StepsCard() {
                                     {/* tooltip */}
                                     {selectedAmount === d.amount && (
                                         <div
-                                        className='absolute xl:-top-14 md:-top-16 -top-16 left-1/2 transform -translate-x-1/2 z-10 '
+                                            className='absolute xl:-top-14 md:-top-16 -top-16 left-1/2 transform -translate-x-1/2 z-10 '
                                         >
                                             {/* Tooltip Container */}
                                             <div className={`relative right-0 `}>
@@ -84,7 +84,7 @@ export default function StepsCard() {
                                             </div>
                                         </div>
                                     )} {/* end tooltip */}
-                                   
+
 
                                 </div>
                             ))
@@ -129,13 +129,15 @@ export default function StepsCard() {
                             </form>
 
                             {/* content */}
-                            <div className='flex md:flex-row flex-col-reverse gap-0 w-full bg-white md:mt-0 mt-2'>
-                                <div className='space-y-4 xl:w-[50%] lg:w-[50%] md:w-[50%] sm:w-[90%] w-[90%] mx-auto'>
-                                    <Image src={image2} alt='image' placeholder='blur' className='w-full h-[60%] object-cover' />
+                            <div className='flex md:flex-row flex-col-reverse gap-0 w-full  md:mt-0 mt-2'>
+                                <div className='space-y-4 xl:w-[50%] lg:w-[50%] md:w-[50%] sm:w-[90%] w-[90%] mx-auto h-full'>
+                                    <div className='h-[50%]'>
+                                        <Image src={image2} alt='image' placeholder='blur' className='w-full h-full  object-cover' />
+                                    </div>
                                     {/* text content under image */}
-                                    <div className='space-y-2'>
-                                        <h6 className='text-xl text-center font-semibold '>Hot Meals for Families Facing Crisis <br /> and Conflict </h6>
-                                        <p>In Bangladesh and Gaza, families are facing severe hardships due to floods and ongoing conflict. You can help by providing hot, nutritious meals to those in urgent need. Each donation brings us closer to easing their struggles. Join us in offering vital support and spreading hope.
+                                    <div className='space-y-2  h-[45%]'>
+                                        <h6 className='text-xl text-center font-semibold '>Hot Meals for Families in Crisis  </h6>
+                                        <p>In Bangladesh and Gaza, families face severe hardships from floods and conflict. Your support can provide hot, nutritious meals to those in need. Each donation helps ease their struggles. Join us in offering essential aid and spreading hope.
                                         </p>
                                     </div>
                                 </div>
