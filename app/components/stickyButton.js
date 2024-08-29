@@ -13,7 +13,12 @@ export default function StickyButton() {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 700) { // Adjust the threshold as needed
+      const scrollTop = window.scrollY;
+      const scrollHeight = document.documentElement.scrollHeight;
+      const clientHeight = document.documentElement.clientHeight;
+
+      // Show button if scrolled down more than 700px and not at the bottom
+      if (scrollTop > 700 && scrollTop + clientHeight < scrollHeight - 100) {
         setShowButton(true);
       } else {
         setShowButton(false);

@@ -22,6 +22,7 @@ export default function Header() {
                     loop
                     muted
                     playsInline
+                    controls
                 />
             </div>
 
