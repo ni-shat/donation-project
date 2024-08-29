@@ -110,7 +110,7 @@ export default function ThirdSegment() {
                         <DonateNowButton
                             width={"w-full"} lgWidth={"w-56"}
                             height={"h-[65px]"}
-                            btnText={"Help Restore Childhood Joy"}
+                            btnText={"Help Restore Childhood Joy!"}
                             textSize={"text-xl"}
                             font={"font-semibold"}
                         ></DonateNowButton>
