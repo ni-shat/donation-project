@@ -16,7 +16,7 @@ export default function MonthlySupply() {
 
                     {/* <div className='flex flex-col gap-4 text-start font-semibold xl:w-[50%] lg:w-[50%] md:w-[50%] sm:w-full w-full px-2'>
                         <h3 className='text-4xl font-semibold text-red-950'>
-                            A MONTH’S SUPPLY OF HOT MEALS = $56
+                            A MONTH&rsquo;S SUPPLY OF HOT MEALS = $56
                         </h3>
                         <hr className='bg-gray-800 text-gray-800 h-[2px]' />
 
@@ -27,7 +27,7 @@ export default function MonthlySupply() {
                             Allah will reward you for the role you play in alleviating the situation of even ONE brother or sister in these camps.
                         </p>
                         <p className='text-xl font-normal'>
-                            The Messenger of Allah (saw) said, ‘(O people!) Save yourselves from the [Hell] Fire even if it is with half a date [given in charity], and if you cannot find that, then [save yourselves by saying] a good word’. [Al-Bukhari & Muslim]
+                            The Messenger of Allah (saw) said, ‘(O people!) Save yourselves from the [Hell] Fire even if it is with half a date [given in charity], and if you cannot find that, then [save yourselves by saying] a good word&rsquo;. [Al-Bukhari & Muslim]
                         </p>
                         <p className='text-xl font-normal'>
                             May Allah ACCEPT your donations, save us from being held to account for the severe trials of our brothers and sisters in the Ummah, and help alleviate this crisis from them.

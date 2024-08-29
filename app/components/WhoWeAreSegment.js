@@ -23,7 +23,7 @@ export default function WhoWeAreSegment() {
                         <span className='text-2xl'>One Path Project</span> is committed to a 100% donation policy, dedicated to alleviating poverty and suffering both locally and globally. We provide essential aid including food, clean water, shelter, orphan sponsorships, and more to those in need, especially in the world's most impoverished regions.
                     </p>
                     <p className='text-xl font-normal'>
-                        Through your generous support, we’ve been delivering life-saving relief – distributing food, water, and other essentials to vulnerable communities. We are determined to continue this vital work, but we need your help to reach even more people in desperate need.
+                        Through your generous support, we&rsquo;ve been delivering life-saving relief – distributing food, water, and other essentials to vulnerable communities. We are determined to continue this vital work, but we need your help to reach even more people in desperate need.
                     </p>
                     <p className='text-xl font-normal'>
                         Right now, One Path Project is actively assisting refugees across the Middle East, many of whom have been displaced by war and are living in extreme hardship. Together, we can provide critical aid such as food, clean water, sponsorships for widows and orphans, education, and much more.
