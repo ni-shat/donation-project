@@ -8,15 +8,15 @@ export default function Header() {
         <div>
             {/* <div className='xl:px-6 lg:px-10 md:px-2 sm:px-4 px-0 xl:pt-10 lg:pt-10 md:pt-9 sm:pt-8 pt-6 2xl:w-[76%] xl:w-[95%] mx-auto'> */}
                 {/* <Image src={logo} alt='logo' placeholder='blur' className='xl:w-[9%] lg:w-[21%] md:w-[26%] sm:w-[29%] w-[31%] mx-auto xl:mb-10 md:mb-10 sm:mb-9 mb-8' /> */}
-                <Image src={logo} alt='logo' placeholder='blur' className='xl:w-[8%] lg:w-[21%] md:w-[26%] sm:w-[29%] w-[31%] mx-auto xl:mb-6 md:mb-6 sm:mb-9 mb-8' />
+                <Image src={logo} alt='logo' placeholder='blur' className='xl:w-[8%] lg:w-[11%] md:w-[15%] sm:w-[19%] w-[16%] mx-auto xl:mb-5 md:mb-5 sm:mb-8 mb-3' />
 
 
-                <p className='2xl:text-[42px] xl:text-[42px] lg:text-[42px] md:text-4xl sm:text-2xl text-xl font-semibold 2xl:w-[85%]  w-full mx-auto text-center 2xl:leading-[1.1] xl:leading-[1.1] lg:leading-[1.1] px-3'>Help us feed thousands of families who are struggling every day.</p>
+                <p className='2xl:text-[42px] xl:text-[42px] lg:text-[42px] md:text-4xl sm:text-2xl text-xl font-semibold 2xl:w-[85%]  w-full mx-auto text-center 2xl:leading-[1.1] xl:leading-[1.1] lg:leading-[1.1] leading-[1.2] px-3'>Help us feed thousands of families who are struggling every day.</p>
             {/* </div> */}
 
-            <div className="relative w-[100%] mt-2 mx-auto h-[600px]">
+            <div className="relative w-[100%] lg:mt-2 mx-auto md:h-[600px] h-[365px]">
                 <video
-                    className="absolute top-6 left-0 w-full h-full object-cover"
+                    className="absolute md:top-6 top-3 left-0 w-full h-full object-cover"
                     src="/videos/header_background_video.mp4"
                     autoPlay
                     loop
