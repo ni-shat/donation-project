@@ -73,7 +73,7 @@ export default function ThirdSegment() {
                         <DonateNowButton
                             width={"w-full"} lgWidth={"w-56"}
                             height={"h-[85px]"}
-                            btnText={"YES, I WANT TO BE A BEACON OF HOPE FOR GAZA&rsquo;S RESILIENT SOULS"}
+                            btnText={"YES, I WANT TO BE A BEACON OF HOPE FOR GAZA'S RESILIENT SOULS"}
                             textSize={"text-xl"}
                             font={"font-semibold"}
                         ></DonateNowButton>
