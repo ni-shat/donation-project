@@ -303,7 +303,6 @@ export default function DonationForm({ selectedStepCardAmount, resetForm, closeM
 
 
                     <button className="w-full p-2 bg-[#387084] text-white rounded mt-6"
-                        // onClick={isTooltipVisible ? setWarning(true) : setIsFirstStepCompleted(true)}
                         onClick={handleDonateButton}
                     >Donate</button>
 
