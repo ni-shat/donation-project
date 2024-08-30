@@ -1,6 +1,6 @@
 export async function createDonationData(data) {
   try {
-      const response = await fetch('https://charity-project-server.vercel.app/donation-details', { 
+      const response = await fetch('https://donation-project-38m7.vercel.app/donation-details', { 
 
           method: 'POST',
           headers: {

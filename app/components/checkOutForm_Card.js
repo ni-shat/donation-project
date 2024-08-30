@@ -51,7 +51,7 @@ const CheckoutForm_Card = ({ amount, setShowPayWithCard, setShowPayment, setIsFi
         }
 
         // Call your API to create a payment intent
-        const response = await fetch('https://charity-project-server.vercel.app/create-payment-intent', {
+        const response = await fetch('https://donation-project-38m7.vercel.app/create-payment-intent', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -120,7 +120,7 @@ const CheckoutForm_Card = ({ amount, setShowPayWithCard, setShowPayment, setIsFi
             // post total amount data in totalCollected collection
             try {
                 const amountForPostingToDb = amount / 100;
-                const response = await fetch('https://charity-project-server.vercel.app/update-total-collected', {
+                const response = await fetch('https://donation-project-38m7.vercel.app/update-total-collected', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
