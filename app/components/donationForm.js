@@ -69,7 +69,7 @@ export default function DonationForm({ selectedStepCardAmount, resetForm, closeM
         } else {
             setSelectedOption(null); 
         }
-    }, [openingModalFromOtherBtn]);
+    }, [openingModalFromOtherBtn, setValue]);
 
     useEffect(() => {
         if (customAmount !== 'Other amount') {
